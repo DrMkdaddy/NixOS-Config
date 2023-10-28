@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./dunst.nix
+    ./misc.nix
     ./hyprland.nix
     ./pavucontrol.nix
     ./waybar.nix
