@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
     shellInit = ''

@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     anyrun = {
@@ -21,9 +21,9 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
+    system = "x86_64-linux";
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = [
           ./nixos/configuration.nix
         ];
@@ -38,7 +38,6 @@
           ./home-manager/home.nix
           anyrun.homeManagerModules.default
         ];
-        home-manager.useGlobalPkgs = true;
       };
     };
   };

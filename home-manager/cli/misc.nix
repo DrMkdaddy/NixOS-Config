@@ -1,11 +1,4 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  config,
-  outputs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     kitty
     grimblast

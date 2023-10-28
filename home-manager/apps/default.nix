@@ -4,5 +4,6 @@ _: {
     ./armcord.nix
     ./firefox.nix
     ./steam.nix
+    ./misc.nix
   ];
 }

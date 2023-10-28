@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   programs.git = {
     enable = true;
     userName = "Noor Mkdad";

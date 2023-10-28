@@ -1,9 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
-  config,
-  anyrun,
   ...
 }: {
   programs.anyrun = {
@@ -14,16 +11,6 @@
         inputs.anyrun.packages.${pkgs.system}.applications
         "${inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins}/lib/kidex"
       ];
-      width = {fraction = 0.3;};
-      position = "top";
-      verticalOffset = {absolute = 0;};
-      hideIcons = false;
-      ignoreExclusiveZones = false;
-      layer = "overlay";
-      hidePluginInfo = false;
-      closeOnClick = false;
-      showResultsImmediately = false;
-      maxEntries = null;
     };
   };
 }

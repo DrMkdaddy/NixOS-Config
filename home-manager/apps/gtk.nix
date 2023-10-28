@@ -1,11 +1,5 @@
-{
-  pkgs,
-  config,
-  lib,
-  inputs,
-  ...
-}: {
-  gtk = {
+{pkgs, ...}: {
+  programs.gtk = {
     enable = true;
     iconTheme = {
       name = "fluent-icon-theme";

@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   programs.xdg-desktop-portal-hyprland = {
     enable = true;
   };
