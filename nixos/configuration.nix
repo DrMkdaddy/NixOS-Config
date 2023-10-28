@@ -26,8 +26,11 @@
       auto-optimise-store = true;
     };
   };
+  programs.steam.enable = true;
+  programs.xdg-desktop-portal-hyprland = {
+    enable = true;
+  };
 
-  programs.hyprland.enable = true;
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   boot.loader.systemd-boot.enable = true;

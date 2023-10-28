@@ -4,6 +4,5 @@ _: {
     ./hyprland.nix
     ./waybar.nix
     ./anyrun.nix
-    ./hyprland-portal.nix
   ];
 }

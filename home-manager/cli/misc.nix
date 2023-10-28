@@ -9,5 +9,7 @@
     brightnessctl
     gh
     nil
+    zoxide
+    alejandra
   ];
 }
