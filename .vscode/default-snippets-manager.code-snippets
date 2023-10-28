@@ -1,0 +1,21 @@
+{
+	"package": {
+		"prefix": "package",
+		"description": "package",
+		"scope": "nix",
+		"body": [
+			"{",
+			"  pkgs,",
+			"  inputs,",
+			"  lib,",
+			"  config,",
+			"  ...",
+			"}: {",
+			"  programs.neovim = {",
+			"    enable = true;",
+			"  };",
+			"}",
+			""
+		]
+	}
+}
