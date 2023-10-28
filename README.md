@@ -1,9 +1,10 @@
 TODO: 
-    []: Set this up
-    []: Set this up
-    []: Set this up
+   - []: Set this up
+   - []: Set this up
+   - []: Set this up
 
 Planned Dir Structure
+```
 root/
 ├─ flake.nix
 ├─ home-manager/
@@ -19,3 +20,4 @@ root/
 │  ├─ kernel.nix
 │  ├─ boot.nix
 │  ├─ system_programs.nix
+```
