@@ -42,6 +42,7 @@
   };
   programs.fish.enable = true;
   security.rtkit.enable = true;
+  environment.binsh = "${pkgs.dash}/bin/dash";
   services.pipewire = {
     enable = true;
     alsa.enable = true;
