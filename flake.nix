@@ -48,7 +48,6 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/home.nix
-          anyrun.homeManagerModules.default
         ];
       };
     };
