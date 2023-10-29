@@ -11,14 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    anyrun,
     hyprland,
     ...
   } @ inputs: let
@@ -27,7 +25,6 @@
     system = "x86_64-linux";
     nixConfig = {
       extra-substituters = [
-        "https://anyrun.cachix.org"
         "https://hyprland.cachix.org"
       ];
       extra-trusted-public-keys = [

@@ -56,8 +56,10 @@
       openssh.authorizedKeys.keys = [
       ];
       extraGroups = ["wheel" "noor"];
+      useDefaultShell = true;
     };
   };
+  users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
   security.rtkit.enable = true;
   environment.binsh = "${pkgs.dash}/bin/dash";
