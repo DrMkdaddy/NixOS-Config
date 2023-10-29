@@ -3,6 +3,6 @@ _: {
     ./misc.nix
     ./hyprland.nix
     ./waybar.nix
-    ./anyrun.nix
+    # ./anyrun.nix
   ];
 }

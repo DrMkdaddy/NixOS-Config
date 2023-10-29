@@ -18,7 +18,6 @@
     nerdfonts # stay
   ];
   systemd.user.startServices = "sd-switch";
-  users.defaultUserShell = pkgs.fish;
   home = {
     username = "noor";
     homeDirectory = "/home/noor";

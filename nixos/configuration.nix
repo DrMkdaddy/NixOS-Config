@@ -26,7 +26,14 @@
       auto-optimise-store = true;
     };
   };
-
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+  };
+  services.flatpak.enable = true;
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   boot.loader.systemd-boot.enable = true;
