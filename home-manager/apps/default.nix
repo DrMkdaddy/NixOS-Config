@@ -3,7 +3,7 @@ _: {
     ./gtk.nix
     ./firefox.nix
     ./misc.nix
-    ./nemo.nix
+    ./steam.nix
     # ./flatpak.nix
     # ./element.nix
     # ./vscodium.nix

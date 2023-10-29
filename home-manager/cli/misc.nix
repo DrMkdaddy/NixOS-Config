@@ -13,5 +13,6 @@
     alejandra
     powertop
     killall
+    ranger
   ];
 }
