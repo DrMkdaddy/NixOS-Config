@@ -1,28 +1,49 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   gtk = {
     enable = true;
-    iconTheme = {
-      name = "fluent-icon-theme";
-      package = pkgs.fluent-icon-theme;
-    };
-    theme = {
-      name = "yaru-dark";
-      package = pkgs.yaru-theme;
-    };
     cursorTheme = {
-      name = "yaru-dark-cursor-thene";
-      package = pkgs.yaru-theme;
+      name = "elementary";
+      package = pkgs.pantheon.elementary-icon-theme;
+      size = 32;
     };
-    gtk3.extraConfig = {
-      Settings = ''
+
+    font = {
+      name = "Work Sans 12";
+      package = pkgs.work-sans;
+    };
+
+    gtk2 = {
+      configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+      extraConfig = ''
         gtk-application-prefer-dark-theme=1
       '';
     };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+
+    gtk3 = {
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
+
+    gtk4 = {
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
+
+    iconTheme = {
+      name = "elementary";
+      package = pkgs.pantheon.elementary-icon-theme;
+    };
+
+    theme = {
+      name = "io.elementary.stylesheet.bubblegum";
+      package = pkgs.pantheon.elementary-gtk-theme;
     };
   };
-  home.sessionVariables.GTK_THEME = "yaru-dark";
 }

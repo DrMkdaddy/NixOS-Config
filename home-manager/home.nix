@@ -16,10 +16,6 @@
   };
   home.packages = with pkgs; [
     nerdfonts # stay
-    waybar # hyprland
-    dunst # hyprland
-    pavucontrol #hyprland folder maybe
-    xdg-desktop-portal-hyprland #hyprland
   ];
   systemd.user.startServices = "sd-switch";
   home = {

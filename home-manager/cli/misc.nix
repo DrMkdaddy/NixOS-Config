@@ -11,5 +11,7 @@
     nil
     zoxide
     alejandra
+    powertop
+    killall
   ];
 }
