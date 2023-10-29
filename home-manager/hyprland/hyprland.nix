@@ -7,6 +7,7 @@
   imports = [inputs.hyprland.homeManagerModules.default];
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     extraConfig = ''
       source=/home/noor/.config/hypr/keybinds.conf
       exec-once = wl-clipboard-history -t
@@ -74,9 +75,9 @@
 
       animations {
         enabled = true
-        bezier = overshot, 0.05, 0.9, 0.1, 1.05
-        bezier = smoothOut, 0.36, 0, 0.66, -0.56
-        bezier = smoothIn, 0.25, 1, 0.5, 1
+      #  bezier = overshot, 0.05, 0.9, 0.1, 1.05
+      #  bezier = smoothOut, 0.36, 0, 0.66, -0.56
+      #  bezier = smoothIn, 0.25, 1, 0.5, 1
 
         animation = windows, 1, 5, overshot, slide
         animation = windowsOut, 1, 4, smoothOut, slide

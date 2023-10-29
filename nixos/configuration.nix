@@ -33,6 +33,7 @@
       pkgs.xdg-desktop-portal-hyprland
     ];
   };
+  programs.dconf.enable = true;
   services.flatpak.enable = true;
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
