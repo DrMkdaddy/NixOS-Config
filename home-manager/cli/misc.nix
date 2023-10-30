@@ -14,5 +14,6 @@
     powertop
     killall
     ranger
+    eza
   ];
 }

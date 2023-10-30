@@ -9,7 +9,6 @@
     enable = true;
     xwayland.enable = true;
     extraConfig = ''
-      source=/home/noor/.config/hypr/keybinds.conf
       exec-once = wl-clipboard-history -t
       exec-once = ~/.config/hypr/xdg-portal-hyprland
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -124,6 +123,85 @@
       layerrule = ignorezero, waybar
       windowrule = float, swaync
 
-      exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP    '';
+      exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP   
+
+bind = SUPER, M, exec, /usr/bin/env  kitty
+bind = ,XF86MonBrightnessDown, exec, brightnessctl s 5%-
+bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+
+bind = SUPER, I, exec, hyprpicker -f hex -a
+bind = SUPER, N, exec, swaync-client -t -sw
+
+binde=, XF86AudioRaiseVolume, exec, swayosd --output-volume raise
+binde=, XF86AudioLowerVolume, exec, swayosd --output-volume lower
+binde=, XF86AudioMute, exec, swayosd --output-volume mute-toggle
+bind=, XF86AudioPlay, exec, playerctl play-pause
+bind=, XF86AudioPause, exec, playerctl play-pause
+bind=, XF86AudioNext, exec, playerctl next
+bind=, XF86AudioPrev, exec, playerctl previous
+
+
+bind = SUPER SHIFT, X, exec, hyprpicker -a -n
+bind = SUPER, E, exec, thunar
+
+bind = SUPER, Q, killactive,
+bind = SUPER SHIFT, Q, exit,
+bind = SUPER, F, fullscreen,
+bind = SUPER, Space, togglefloating,
+bind = SUPER, P, pseudo, # dwindle
+bind = SUPER, S, togglesplit, # dwindle
+
+bind = ,Print,exec,grimblast copysave screen && notify-send "Screenshot Saved"
+bind = SUPER + SHIFT, Print, exec, grimblast copysave active && notify-send "Screenshot Saved"
+bind = SUPER, Print ,exec, grimblast copysave area && notify-send 'Screenshot Saved'
+
+bind = SUPER, left, movefocus, l
+bind = SUPER, right, movefocus, r
+bind = SUPER, up, movefocus, u
+bind = SUPER, down, movefocus, d
+
+bind = SUPER SHIFT, left, movewindow, l
+bind = SUPER SHIFT, right, movewindow, r
+bind = SUPER SHIFT, up, movewindow, u
+bind = SUPER SHIFT, down, movewindow, d
+
+bind = SUPER CTRL, left, resizeactive, -20 0
+bind = SUPER CTRL, right, resizeactive, 20 0
+bind = SUPER CTRL, up, resizeactive, 0 -20
+bind = SUPER CTRL, down, resizeactive, 0 20
+
+bind= SUPER, g, togglegroup
+bind= SUPER, tab, changegroupactive
+
+bind = SUPER, grave, togglespecialworkspace
+bind = SUPERSHIFT, grave, movetoworkspace, special
+
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+bind = SUPER, 5, workspace, 5
+bind = SUPER, 6, workspace, 6
+bind = SUPER, 7, workspace, 7
+bind = SUPER, 8, workspace, 8
+bind = SUPER, 9, workspace, 9
+bind = SUPER, 0, workspace, 10
+
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
+bind = SUPER SHIFT, 6, movetoworkspace, 6
+bind = SUPER SHIFT, 7, movetoworkspace, 7
+bind = SUPER SHIFT, 8, movetoworkspace, 8
+bind = SUPER SHIFT, 9, movetoworkspace, 9
+bind = SUPER SHIFT, 0, movetoworkspace, 10
+
+bindm = SUPER, mouse:272, movewindow
+bindm = SUPER, mouse:273, resizewindow
+bind = SUPER, mouse_down, workspace, e+1
+bind = SUPER, mouse_up, workspace, e-1
+
+      '';
   };
 }

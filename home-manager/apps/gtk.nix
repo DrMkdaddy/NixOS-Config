@@ -42,7 +42,7 @@
     };
 
     theme = {
-      name = "io.elementary.stylesheet.bubblegum";
+      name = "io.elementary.stylesheet.strawberry";
       package = pkgs.pantheon.elementary-gtk-theme;
     };
   };

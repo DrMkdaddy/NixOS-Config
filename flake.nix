@@ -12,6 +12,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     nix-gaming.url = "github:fufexan/nix-gaming";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs = {
@@ -19,6 +20,7 @@
     nixpkgs,
     home-manager,
     hyprland,
+    spicetify-nix,
     ...
   } @ inputs: let
     inherit (self) outputs;
