@@ -5,5 +5,6 @@ _: {
     ./misc.nix
      ./vscodium.nix
      ./spotify.nix
+     ./anyrun.nix
   ];
 }
