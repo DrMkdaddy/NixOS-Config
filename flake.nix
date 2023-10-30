@@ -13,6 +13,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     nix-gaming.url = "github:fufexan/nix-gaming";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    anyrun-nixos-options.url = "github:n3oney/anyrun-nixos-options";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
     hyprland,
     spicetify-nix,
     anyrun,
+    anyrun-nixos-options, 
     ...
   } @ inputs: let
     inherit (self) outputs;
