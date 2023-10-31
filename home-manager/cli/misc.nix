@@ -16,5 +16,6 @@
     lf
     eza
     libnotify
+    xdragon
   ];
 }

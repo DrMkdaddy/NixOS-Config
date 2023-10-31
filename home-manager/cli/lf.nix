@@ -1,3 +1,4 @@
+# Thanks Vimjoyer or sumn yipee
 { pkgs, config, ... }:
 {
   xdg.configFile."lf/icons".source = ./icons;
@@ -33,8 +34,6 @@
       "g/" = "/";
 
       ee = "editor-open";
-      V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
-
       # ...
     };
 
