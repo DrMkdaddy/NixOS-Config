@@ -89,6 +89,7 @@
         pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
         preserve_split = true # you probably want this
       }
+      windowrule = float, anyrun
       windowrule = float, file_progress
       windowrule = float, confirm
       windowrule = float, dialog
@@ -118,7 +119,7 @@
       windowrule = float, dragon-drop
       windowrule = pin, dragon-drop
       layerrule = ignorezero, waybar
-      windowrule = float, swaync
+
 
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP   
 

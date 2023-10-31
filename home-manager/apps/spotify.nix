@@ -16,6 +16,11 @@ in
         fullAppDisplay
         shuffle
         hidePodcasts
+	adblock
+      ];
+      enabledCustomApps = with spicePkgs.apps; [
+	localFiles
+	new-releases
       ];
     };
 }
