@@ -14,11 +14,15 @@
       lightline.enable = true;
       chadtree.enable = true;
       treesitter.enable = true;
+      nvim_lsp.enable = true; 
+      
 
       #cmp
       nvim-cmp.enable = true;
       cmp-treesitter.enable = true;
       cmp-vim-lsp.enable = true; 
+      cmp-buffer.enable = true;
+      cmp-path.enable = true;
     };
 
     options = {
