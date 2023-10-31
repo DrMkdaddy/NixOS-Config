@@ -10,6 +10,10 @@
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
     nix-gaming.url = "github:fufexan/nix-gaming";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
@@ -24,6 +28,7 @@
     spicetify-nix,
     anyrun,
     anyrun-nixos-options, 
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
