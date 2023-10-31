@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware/laptop-hardware.nix
     ./kernel.nix
     ./boot.nix
     ./apps

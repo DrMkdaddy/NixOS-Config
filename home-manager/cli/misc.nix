@@ -13,7 +13,8 @@
     alejandra
     powertop
     killall
-    ranger
+    lf
     eza
+    libnotify
   ];
 }

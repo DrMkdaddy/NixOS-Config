@@ -16,6 +16,7 @@
   };
   home.packages = with pkgs; [
     nerdfonts # stay
+    twemoji-color-font
   ];
   systemd.user.startServices = "sd-switch";
   home = {

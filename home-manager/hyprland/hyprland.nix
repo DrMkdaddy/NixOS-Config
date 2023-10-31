@@ -16,13 +16,10 @@
       #exec-once = wlsunset -S 9:00 -s 19:30
       exec-once = swww init
       exec-once = swww img ~/.wallpapers/monokaiscape.webp
-      # exec-once = mpvpaper -o "no-audio --loop" '*' ~/.wallpapers/bleach_expo.webm
       exec-once = waybar -c ~/.config/waybar/monokai/config -s ~/.config/waybar/monokai/style.css
       exec-once = dunst
-      # exec-once = /home/noor/.config/swaync/swayc.sh
       exec-once = swayosd
 
-      #exec-once=hyprctl plugin load $HOME/.config/hypr/plugins/split-monitor-workspaces.so
       monitor= DP-3,preferred,1920x0,1
       workspace= DP-3,1
 
@@ -129,7 +126,6 @@ bind = SUPER, M, exec, /usr/bin/env  kitty
 bind = ,XF86MonBrightnessDown, exec, brightnessctl s 5%-
 bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+
 bind = SUPER, I, exec, hyprpicker -f hex -a
-bind = SUPER, N, exec, swaync-client -t -sw
 
 binde=, XF86AudioRaiseVolume, exec, swayosd --output-volume raise
 binde=, XF86AudioLowerVolume, exec, swayosd --output-volume lower
@@ -141,7 +137,6 @@ bind=, XF86AudioPrev, exec, playerctl previous
 
 
 bind = SUPER SHIFT, X, exec, hyprpicker -a -n
-bind = SUPER, E, exec, thunar
 
 bind = SUPER, Q, killactive,
 bind = SUPER SHIFT, Q, exit,
@@ -175,27 +170,18 @@ bind= SUPER, tab, changegroupactive
 bind = SUPER, grave, togglespecialworkspace
 bind = SUPERSHIFT, grave, movetoworkspace, special
 
-bind = SUPER, 1, workspace, 1
-bind = SUPER, 2, workspace, 2
-bind = SUPER, 3, workspace, 3
-bind = SUPER, 4, workspace, 4
-bind = SUPER, 5, workspace, 5
-bind = SUPER, 6, workspace, 6
-bind = SUPER, 7, workspace, 7
-bind = SUPER, 8, workspace, 8
-bind = SUPER, 9, workspace, 9
-bind = SUPER, 0, workspace, 10
-
-bind = SUPER SHIFT, 1, movetoworkspace, 1
-bind = SUPER SHIFT, 2, movetoworkspace, 2
-bind = SUPER SHIFT, 3, movetoworkspace, 3
-bind = SUPER SHIFT, 4, movetoworkspace, 4
-bind = SUPER SHIFT, 5, movetoworkspace, 5
-bind = SUPER SHIFT, 6, movetoworkspace, 6
-bind = SUPER SHIFT, 7, movetoworkspace, 7
-bind = SUPER SHIFT, 8, movetoworkspace, 8
-bind = SUPER SHIFT, 9, movetoworkspace, 9
-bind = SUPER SHIFT, 0, movetoworkspace, 10
+    ${builtins.concatStringsSep "\n" (builtins.genList (
+        x: let
+          ws = let
+            c = (x + 1) / 10;
+          in
+            builtins.toString (x + 1 - (c * 10));
+        in ''
+          bind = SUPER, ${ws}, workspace, ${toString (x + 1)}
+          bind = SUPER SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
+        ''
+      )
+      10)}
 
 bindm = SUPER, mouse:272, movewindow
 bindm = SUPER, mouse:273, resizewindow
