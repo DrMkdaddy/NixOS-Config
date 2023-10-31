@@ -6,5 +6,6 @@ _: {
     ./starship.nix
     ./misc.nix
     ./bottom.nix
+    ./lf.nix
   ];
 }

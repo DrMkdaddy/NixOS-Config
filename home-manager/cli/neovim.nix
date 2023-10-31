@@ -26,6 +26,7 @@
       lsp-lines.enable = true;
       luasnip.enable = true;
       nvim-colorizer.enable = true; 
+      gitsigns.enable = true; 
       
       #cmp
       nvim-cmp = {
@@ -38,10 +39,10 @@
 	  { name = "buffer"; }
 	];
 	mapping = {
-	  "<C-Space>" = "cmp.mapping.complete()";
+	  "<C-l>" = "cmp.mapping.complete()";
 	  "<C-j>" = "cmp.mapping.scroll_docs(4)";
 	  "<C-k>" = "cmp.mapping.scroll_docs(-4)";
-	  "<C-l>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+	  "<C-Space>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
 	  "<C-n>" = {
 	    action = ''
             function(fallback)
@@ -54,7 +55,6 @@
               end
             end
           '';
-
         modes = ["i" "s"];
         };
         "<C-p>" = {

@@ -1,24 +1,18 @@
 {
   pkgs,
-  inputs,
-  lib,
+  inputs, 
   ...
 }: {
   imports = [inputs.anyrun.homeManagerModules.default];
   programs.anyrun = {
     enable = true;
     config = {
-      plugins = with inputs.anyrun.packages."x86_64-linux";
+      plugins = with inputs.anyrun.packages.${pkgs.system};
         [
           applications
-          rink
-          translate
-          randr
-          shell
           symbols
-          translate
         ]
-        ++ [inputs.anyrun-nixos-options.packages."x86_64-linux".default];
+        ++ [inputs.anyrun-nixos-options.packages.${pkgs.system}.default];
       width = {fraction = 0.3;};
       y.fraction = 0.02;
       hideIcons = false;
@@ -37,20 +31,9 @@
             max_entries: 30,
         )
       '';
-      "dictionary.ron".text = ''
-        Config(
-            prefix: ":d",
-        )
-      '';
       "symbols.ron".text = ''
         Config(
             prefix: ":s",
-        )
-      '';
-      "translate.ron".text = ''
-        Config(
-            prefix: ":",
-            language_delimiter: ">",
         )
       '';
     };
