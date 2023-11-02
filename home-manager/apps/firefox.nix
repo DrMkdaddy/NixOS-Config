@@ -4,7 +4,8 @@
   lib,
   ...
 }: {
-  programs.firefox = {
-    enable = true;
-  };
+    home.packages = with pkgs; [
+    (firefox.override { extraNativeMessagingHosts = [ inputs.pipewire-screenaudio.packages.${pkgs.system}.default ]; })
+    # ...
+  ];
 }

@@ -18,7 +18,7 @@
       exec-once = swww img ~/.wallpapers/monokaiscape.webp
       exec-once = waybar -c ~/.config/waybar/monokai/config -s ~/.config/waybar/monokai/style.css
       exec-once = dunst
-      exec-once = swayosd
+      exec-once = swayosd-server
 
       monitor= DP-3,preferred,1920x0,1
       workspace= DP-3,1
@@ -125,12 +125,12 @@
 
 bind = SUPER, M, exec, /usr/bin/env  kitty
 bind = ,XF86MonBrightnessDown, exec, brightnessctl s 5%-
-bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+
+bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+ 
 bind = SUPER, I, exec, hyprpicker -f hex -a
 
-binde=, XF86AudioRaiseVolume, exec, swayosd --output-volume raise
-binde=, XF86AudioLowerVolume, exec, swayosd --output-volume lower
-binde=, XF86AudioMute, exec, swayosd --output-volume mute-toggle
+binde=, XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise
+binde=, XF86AudioLowerVolume, exec, swayosd-client --output-volume lower
+binde=, XF86AudioMute, exec, swayosd-client --output-volume mute-toggle
 bind=, XF86AudioPlay, exec, playerctl play-pause
 bind=, XF86AudioPause, exec, playerctl play-pause
 bind=, XF86AudioNext, exec, playerctl next

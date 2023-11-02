@@ -17,6 +17,7 @@
   home.packages = with pkgs; [
     nerdfonts # stay
     twemoji-color-font
+    mplus-outline-fonts.githubRelease
   ];
   systemd.user.startServices = "sd-switch";
   home = {

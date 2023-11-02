@@ -73,6 +73,12 @@
 	  };
 	};
       };
+
+      lsp-format = {
+	enable = true; 
+	lspServersToEnable = "all";
+      };
+
       cmp-treesitter.enable = true;
       cmp-vim-lsp.enable = true; 
       cmp-buffer.enable = true;

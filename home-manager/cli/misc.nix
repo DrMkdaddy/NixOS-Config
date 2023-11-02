@@ -12,10 +12,13 @@
     zoxide
     alejandra
     powertop
-    killall
     lf
     eza
     libnotify
     xdragon
+    freshfetch
+    tmatrix
+    psmisc
+    swayosd
   ];
 }
