@@ -7,6 +7,6 @@ _: {
     ./misc.nix
     ./btop.nix
     ./lf.nix
-    ./anyrun
+    ./kitty
   ];
 }
