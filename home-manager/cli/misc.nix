@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    kitty
     grimblast
     python3
     wl-clipboard

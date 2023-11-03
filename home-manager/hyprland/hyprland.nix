@@ -143,6 +143,7 @@
     bind = SUPER, Space, togglefloating,
     bind = SUPER, P, pseudo, # dwindle
     bind = SUPER, S, togglesplit, # dwindle
+    bind = SUPER, R, exec, anyrun
 
     bind = ,Print,exec,grimblast copysave screen && notify-send "Screenshot Saved"
     bind = SUPER + SHIFT, Print, exec, grimblast copysave active && notify-send "Screenshot Saved"

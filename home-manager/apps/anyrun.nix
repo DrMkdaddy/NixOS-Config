@@ -26,19 +26,43 @@
       "applications.ron".text = ''
         Config(
             desktop_actions: true,
-            terminal: Some("foot"),
+            terminal: Some("kitty"),
             max_entries: 30,
         )
       '';
     };
     extraCss=''
-      #window,
-      #match,
-      #entry,
-      #plugin,
-      #main {
-        background: transparent;
-      }
+        * {
+          transition: 200ms ease;
+        }
+
+        #window,
+        #match,
+        #entry,
+        #plugin,
+        #main {
+          background: transparent;
+        }
+
+        #match:selected {
+          background: rgba(203, 166, 247, 0.7);
+        }
+
+        #match {
+          padding: 3px;
+          border-radius: 5px;
+        }
+
+        #entry, #plugin:hover {
+          border-radius: 8px;
+        }
+
+        box#main {
+          background: rgba(30, 30, 46, 1);
+          border: 1px solid #28283d;
+          border-radius: 16px;
+          padding: 5px;
+        }
     '';
   };
 }
