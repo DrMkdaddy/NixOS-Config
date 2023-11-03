@@ -7,7 +7,6 @@
   imports = [inputs.hyprland.homeManagerModules.default];
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
     extraConfig = ''
       exec-once = wl-clipboard-history -t
       exec-once = ~/.config/hypr/xdg-portal-hyprland
