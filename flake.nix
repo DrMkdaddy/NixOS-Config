@@ -19,6 +19,7 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     anyrun-nixos-options.url = "github:n3oney/anyrun-nixos-options";
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
+    xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs = {
@@ -31,6 +32,7 @@
     anyrun-nixos-options, 
     nixvim,
     pipewire-screenaudio,
+    xdph,
     ...
   } @ inputs: let
     inherit (self) outputs;

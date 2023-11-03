@@ -29,6 +29,13 @@
       libvdpau-va-gl
     ];
   };
+  xdg.portal = { 
+    enable = true;
+    extraPortals = [
+      inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
   nix = {
     registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
@@ -37,12 +44,6 @@
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
     };
-  };
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
   };
   programs.dconf.enable = true;
   services.flatpak.enable = true;
@@ -58,12 +59,6 @@
       extraGroups = ["wheel" "noor"];
       useDefaultShell = true;
     };
-  };
-  programs.hyprland = {
-    enable = true; 
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-    xwayland.enable = true; 
   };
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
