@@ -1,10 +1,7 @@
 {
-  pkgs,
-  inputs,
-  lib,
   ...
 }: {
-  programs.bottom = {
+  programs.btop = {
     enable = true;
   };
 }

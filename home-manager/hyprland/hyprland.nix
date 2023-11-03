@@ -86,8 +86,7 @@
 
       dwindle {
         no_gaps_when_only = false
-        pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-        preserve_split = true # you probably want this
+        preserve_split = true
       }
       windowrule = float, anyrun
       windowrule = float, file_progress
@@ -123,15 +122,15 @@
 
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP   
 
-bind = SUPER, M, exec, /usr/bin/env  kitty
-bind = ,XF86MonBrightnessDown, exec, brightnessctl s 5%-
-bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+ 
-bind = SUPER, I, exec, hyprpicker -f hex -a
+      bind = SUPER, M, exec, /usr/bin/env  kitty
+      bind = ,XF86MonBrightnessDown, exec, brightnessctl s 5%-
+      bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+ 
+      bind = SUPER, I, exec, hyprpicker -f hex -a
 
-binde=, XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise
-binde=, XF86AudioLowerVolume, exec, swayosd-client --output-volume lower
-binde=, XF86AudioMute, exec, swayosd-client --output-volume mute-toggle
-bind=, XF86AudioPlay, exec, playerctl play-pause
+     binde=, XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise
+     binde=, XF86AudioLowerVolume, exec, swayosd-client --output-volume lower
+     binde=, XF86AudioMute, exec, swayosd-client --output-volume mute-toggle
+     bind=, XF86AudioPlay, exec, playerctl play-pause
 bind=, XF86AudioPause, exec, playerctl play-pause
 bind=, XF86AudioNext, exec, playerctl next
 bind=, XF86AudioPrev, exec, playerctl previous

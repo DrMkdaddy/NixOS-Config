@@ -7,6 +7,7 @@
       abbr -a nxrb "sudo nixos-rebuild switch --flake /home/noor/Sysflake/"
       abbr -a hmrb "home-manager switch --flake /home/noor/Sysflake/"
       abbr -a ls "eza --icons=always -1"
+      abbr -a v "nvim"
     '';
   };
 }
