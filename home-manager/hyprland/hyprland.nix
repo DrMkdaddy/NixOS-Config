@@ -88,7 +88,6 @@
         no_gaps_when_only = false
         preserve_split = true
       }
-      windowrule = float, anyrun
       windowrule = float, file_progress
       windowrule = float, confirm
       windowrule = float, dialog
@@ -122,53 +121,53 @@
 
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP   
 
-      bind = SUPER, M, exec, /usr/bin/env  kitty
-      bind = ,XF86MonBrightnessDown, exec, brightnessctl s 5%-
-      bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+ 
-      bind = SUPER, I, exec, hyprpicker -f hex -a
+     bind = SUPER, M, exec, /usr/bin/env  kitty
+     bind = ,XF86MonBrightnessDown, exec, brightnessctl s 5%-
+     bind = ,XF86MonBrightnessUp, exec, brightnessctl s 5%+ 
+     bind = SUPER, I, exec, hyprpicker -f hex -a
 
      binde=, XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise
      binde=, XF86AudioLowerVolume, exec, swayosd-client --output-volume lower
      binde=, XF86AudioMute, exec, swayosd-client --output-volume mute-toggle
      bind=, XF86AudioPlay, exec, playerctl play-pause
-bind=, XF86AudioPause, exec, playerctl play-pause
-bind=, XF86AudioNext, exec, playerctl next
-bind=, XF86AudioPrev, exec, playerctl previous
+     bind=, XF86AudioPause, exec, playerctl play-pause
+     bind=, XF86AudioNext, exec, playerctl next
+     bind=, XF86AudioPrev, exec, playerctl previous
 
 
-bind = SUPER SHIFT, X, exec, hyprpicker -a -n
+    bind = SUPER SHIFT, X, exec, hyprpicker -a -n
 
-bind = SUPER, Q, killactive,
-bind = SUPER SHIFT, Q, exit,
-bind = SUPER, F, fullscreen,
-bind = SUPER, Space, togglefloating,
-bind = SUPER, P, pseudo, # dwindle
-bind = SUPER, S, togglesplit, # dwindle
+    bind = SUPER, Q, killactive,
+    bind = SUPER SHIFT, Q, exit,
+    bind = SUPER, F, fullscreen,
+    bind = SUPER, Space, togglefloating,
+    bind = SUPER, P, pseudo, # dwindle
+    bind = SUPER, S, togglesplit, # dwindle
 
-bind = ,Print,exec,grimblast copysave screen && notify-send "Screenshot Saved"
-bind = SUPER + SHIFT, Print, exec, grimblast copysave active && notify-send "Screenshot Saved"
-bind = SUPER, Print ,exec, grimblast copysave area && notify-send 'Screenshot Saved'
+    bind = ,Print,exec,grimblast copysave screen && notify-send "Screenshot Saved"
+    bind = SUPER + SHIFT, Print, exec, grimblast copysave active && notify-send "Screenshot Saved"
+    bind = SUPER, Print ,exec, grimblast copysave area && notify-send 'Screenshot Saved'
 
-bind = SUPER, left, movefocus, l
-bind = SUPER, right, movefocus, r
-bind = SUPER, up, movefocus, u
-bind = SUPER, down, movefocus, d
+    bind = SUPER, left, movefocus, l
+    bind = SUPER, right, movefocus, r
+    bind = SUPER, up, movefocus, u
+    bind = SUPER, down, movefocus, d
 
-bind = SUPER SHIFT, left, movewindow, l
-bind = SUPER SHIFT, right, movewindow, r
-bind = SUPER SHIFT, up, movewindow, u
-bind = SUPER SHIFT, down, movewindow, d
+    bind = SUPER SHIFT, left, movewindow, l
+    bind = SUPER SHIFT, right, movewindow, r
+    bind = SUPER SHIFT, up, movewindow, u
+    bind = SUPER SHIFT, down, movewindow, d
 
-bind = SUPER CTRL, left, resizeactive, -20 0
-bind = SUPER CTRL, right, resizeactive, 20 0
-bind = SUPER CTRL, up, resizeactive, 0 -20
-bind = SUPER CTRL, down, resizeactive, 0 20
+    bind = SUPER CTRL, left, resizeactive, -20 0
+    bind = SUPER CTRL, right, resizeactive, 20 0
+    bind = SUPER CTRL, up, resizeactive, 0 -20
+    bind = SUPER CTRL, down, resizeactive, 0 20
 
-bind= SUPER, g, togglegroup
-bind= SUPER, tab, changegroupactive
+    bind= SUPER, g, togglegroup
+    bind= SUPER, tab, changegroupactive
 
-bind = SUPER, grave, togglespecialworkspace
-bind = SUPERSHIFT, grave, movetoworkspace, special
+    bind = SUPER, grave, togglespecialworkspace
+    bind = SUPERSHIFT, grave, movetoworkspace, special
 
     ${builtins.concatStringsSep "\n" (builtins.genList (
         x: let
@@ -183,11 +182,10 @@ bind = SUPERSHIFT, grave, movetoworkspace, special
       )
       10)}
 
-bindm = SUPER, mouse:272, movewindow
-bindm = SUPER, mouse:273, resizewindow
-bind = SUPER, mouse_down, workspace, e+1
-bind = SUPER, mouse_up, workspace, e-1
-
+    bindm = SUPER, mouse:272, movewindow
+    bindm = SUPER, mouse:273, resizewindow
+    bind = SUPER, mouse_down, workspace, e+1
+    bind = SUPER, mouse_up, workspace, e-1
       '';
   };
 }

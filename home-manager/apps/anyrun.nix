@@ -10,9 +10,8 @@
       plugins = with inputs.anyrun.packages.${pkgs.system};
         [
           applications
-          symbols
-        ]
-        ++ [inputs.anyrun-nixos-options.packages.${pkgs.system}.default];
+        ];
+        # ++ [inputs.anyrun-nixos-options.packages.${pkgs.system}.default];
       width = {fraction = 0.3;};
       y.fraction = 0.02;
       hideIcons = false;
@@ -31,11 +30,15 @@
             max_entries: 30,
         )
       '';
-      "symbols.ron".text = ''
-        Config(
-            prefix: ":s",
-        )
-      '';
     };
+    extraCss=''
+      #window,
+      #match,
+      #entry,
+      #plugin,
+      #main {
+        background: transparent;
+      }
+    '';
   };
 }
