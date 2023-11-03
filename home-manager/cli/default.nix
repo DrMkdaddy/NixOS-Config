@@ -5,7 +5,7 @@ _: {
     ./neovim.nix
     ./starship.nix
     ./misc.nix
-    ./bottom.nix
+    ./btop.nix
     ./lf.nix
   ];
 }
