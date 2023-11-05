@@ -2,7 +2,7 @@ _: {
   imports = [
     ./misc.nix
     ./hyprland.nix
-    ./waybar.nix
+    ./waybar
     # ./anyrun.nix
   ];
 }
