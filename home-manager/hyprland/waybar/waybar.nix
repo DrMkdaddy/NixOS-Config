@@ -154,7 +154,7 @@
       };
     }];
     style = ''
-      ${builtins.readFile."./monokai/style.css"}
+      ${builtins.readFile "/home/noor/Sysflake/home-manager/hyprland/waybar/monokai/style.css"}
     '';
   };
 }
