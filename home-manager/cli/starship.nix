@@ -1,62 +1,69 @@
 { pkgs, lib, ... }:
-
-with lib;
-with builtins;
-
-let
-  isRustFile = path: type:
-    hasSuffix ".rs" path && type == "regular" && path != "mod.rs";
-  mergeAllAttrSets = attrsSets:
-    foldl' (recursiveUpdate) {} attrsSets;
-  disableModules = isDisabled: modules:
-    mergeAllAttrSets (map (mod: { "${mod}".disabled = isDisabled; }) modules);
-
-  starshipPackage = pkgs.starship;
-  promptOrder = [
-    "directory"
-    "git_branch"
-    "git_commit"
-    "git_state"
-    "git_metrics"
-    "git_status"
-    "line_break"
-    "nix_shell"
-    "rust"
-    "scala"
-    "java"
-    "character"
-  ];
-  promptFormat = concatStrings (map (s: "\$${s}") promptOrder);
-  modulesSources = readDir "${starshipPackage.src}/src/modules";
-  enabledModules = disableModules false promptOrder; # <== enabled all modules used in the prompt are enabled
-  disabledModules = pipe modulesSources [            # <== from starship's sources...
-    (filterAttrs isRustFile)                         # <== keep only Rust files...
-    attrNames                                        # <== get the filenames...
-    (map (removeSuffix ".rs"))                       # <== remove Rust source extension...
-    (subtractLists promptOrder)                      # <== do not disable modules used in the prompt...
-    (disableModules true)                            # <== and finally build the configuration
-  ];
+let inherit (lib) mkDefault;
 in
 {
   programs.starship = {
-    package = starshipPackage;
     enable = true;
-    enableZshIntegration = true;
-    settings = mergeAllAttrSets [
-      enabledModules
-      disabledModules
-      {
-        format = promptFormat;
-        directory = {
-          format  = "\\[[  $path](bold fg:39)\\]";
-          truncation_length = 9;
-          truncation_symbol = "…/";
-        };
-        git_branch = {
-          format = "\\[[$symbol$branch](bold fg:40)\\]";
-          truncation_length = 30;
-        };
-      }
-    ];
+    enableFishIntegration = true; 
+    settings = {
+      add_newline = false;
+          aws.symbol = mkDefault " ";
+    cmake.symbol = mkDefault "△ ";
+    conda.symbol = mkDefault " ";
+    dart.symbol = mkDefault " ";
+    directory.read_only = mkDefault " ";
+    docker_context.symbol = mkDefault " ";
+    dotnet.symbol = mkDefault " ";
+    elixir.symbol = mkDefault " ";
+    elm.symbol = mkDefault " ";
+    erlang.symbol = mkDefault " ";
+    gcloud.symbol = mkDefault " ";
+    git_branch.symbol = mkDefault " ";
+    git_commit.tag_symbol = mkDefault " ";
+    git_status.format = mkDefault "([$all_status$ahead_behind]($style) )";
+    git_status.conflicted = mkDefault " ";
+    git_status.ahead = mkDefault " ";
+    git_status.behind = mkDefault " ";
+    git_status.diverged = mkDefault "󰙁 ";
+    git_status.untracked = mkDefault " ";
+    git_status.stashed = mkDefault " ";
+    git_status.modified = mkDefault " ";
+    git_status.staged = mkDefault " ";
+    git_status.renamed = mkDefault " ";
+    git_status.deleted = mkDefault " ";
+    golang.symbol = mkDefault " ";
+    helm.symbol = mkDefault "⎈ ";
+    hg_branch.symbol = mkDefault " ";
+    java.symbol = mkDefault " ";
+    julia.symbol = mkDefault " ";
+    kotlin.symbol = mkDefault " ";
+    kubernetes.symbol = mkDefault "☸ ";
+    lua.symbol = mkDefault " ";
+    memory_usage.symbol = mkDefault " ";
+    nim.symbol = mkDefault " ";
+    nix_shell.symbol = mkDefault " ";
+    nodejs.symbol = mkDefault "󰎙 ";
+    package.symbol = mkDefault " ";
+    perl.symbol = mkDefault " ";
+    php.symbol = mkDefault " ";
+    purescript.symbol = mkDefault "<≡> ";
+    python.symbol = mkDefault " ";
+    ruby.symbol = mkDefault " ";
+    rust.symbol = mkDefault " ";
+    shlvl.symbol = mkDefault " ";
+    status.symbol = mkDefault " ";
+    status.not_executable_symbol = mkDefault " ";
+    status.not_found_symbol = mkDefault " ";
+    status.sigint_symbol = mkDefault " ";
+    status.signal_symbol = mkDefault " ";
+    swift.symbol = mkDefault " ";
+    terraform.symbol = mkDefault "𝗧 ";
+    vagrant.symbol = mkDefault "𝗩 ";
+    zig.symbol = mkDefault " ";
+      character = {
+	success_symbol = "[:D ->](bold fg:orange)";
+	error_symbol = "[D: ->](bold fg:red)";
+      };
+    };
   };
 }
