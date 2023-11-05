@@ -6,8 +6,7 @@ _: {
     ./starship.nix
     ./misc.nix
     ./btop.nix
-    ./lf.nix
-    ./kitty
-    ./alacritty
+    ./lf
+    ./kitty 
   ];
 }
