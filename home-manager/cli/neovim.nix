@@ -57,7 +57,7 @@
           '';
         modes = ["i" "s"];
         };
-        "<C-p>" = {
+        "<C-x>" = {
           action = ''
             function(fallback)
               if cmp.visible() then
@@ -71,6 +71,14 @@
           '';
 	  modes = ["i" "s"];
 	  };
+	};
+      };
+
+      telescope = {
+	enable = true; 
+	keymaps = {
+	  "<C-p>" = "find_files";
+	  "<C-o>" = "live_grep";
 	};
       };
 

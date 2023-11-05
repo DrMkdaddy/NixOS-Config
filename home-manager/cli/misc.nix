@@ -19,5 +19,7 @@
     tmatrix
     psmisc
     swayosd
+    ripgrep
+    repgrep
   ];
 }

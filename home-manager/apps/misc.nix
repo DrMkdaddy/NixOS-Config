@@ -4,5 +4,8 @@
     obsidian
     (discord.override {withOpenASAR = true; withVencord = true;})
     gamescope
+    thunderbird
+    element-desktop
+    prismlauncher
   ];
 }
