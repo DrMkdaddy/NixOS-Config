@@ -15,7 +15,6 @@
       #exec-once = wlsunset -S 9:00 -s 19:30
       exec-once = swww init
       exec-once = swww img ~/.wallpapers/monokaiscape.webp
-      exec-once = waybar -c ~/.config/waybar/monokai/config -s ~/.config/waybar/monokai/style.css
       exec-once = dunst
       exec-once = swayosd-server
 

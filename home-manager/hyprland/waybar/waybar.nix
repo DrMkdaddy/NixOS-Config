@@ -1,11 +1,16 @@
 {pkgs, lib, ...}:
-
+let 
+dir = ./monokai;
+in
 {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     settings = [{
       layer = "top";
       position  = "top";
+      height = 33;
+      width = 1920;
       margin = "3, 0, 2, 0";
 
       # Modules
@@ -154,7 +159,7 @@
       };
     }];
     style = ''
-      ${builtins.readFile "/home/noor/Sysflake/home-manager/hyprland/waybar/monokai/style.css"}
+      ${builtins.readFile "${dir}/style.css"}
     '';
   };
 }
