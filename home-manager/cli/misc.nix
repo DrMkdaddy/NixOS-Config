@@ -21,5 +21,6 @@
     swayosd
     ripgrep
     repgrep
+    lm_sensors
   ];
 }

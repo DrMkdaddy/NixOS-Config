@@ -26,12 +26,12 @@ in
       ];
       modules-center = [
 #	"custom/spotify" # TODO CHANGE TO NOT FUCKING SUCK. USE MPD OR SOMETHING NORMAL NOT A BUMFUCK RANDOM PYTHON SCRIPT
+	"tray"
       ];
       modules-right = [
-	"tray"
 	"backlight"
 	"battery"
-	"temprature"
+	"temperature"
 	"pulseaudio"
 	"clock"
       ];
@@ -39,7 +39,7 @@ in
       # Left Side Modules
       "custom/archlogo" = {
 	tooltip = false;
-	format = "    ";
+	format = "    ";
       };
       "custom/wmname" = {
 	tooltip = false; 
@@ -64,19 +64,19 @@ in
       };
       cpu = {
 	tooltip = false;
-	format = "  : {usage}%";
+	format = " :{usage}%";
 	on-click = "kitty -e btop";
       };
       memory = {
 	tooltip = false;
-	format = "  : {used:0.2f}GB";
+	format = " :{used:0.2f}GB";
 	max-length = 10;
 	warning = 70;
 	critical = 90;
       };
       network = {
 	tooltip = false;
-	format-wifi = "{essid} 󰤨 : {signalStrength}%     ";
+	format-wifi = "{essid} 󰤨 :{signalStrength}%     ";
 	format-ethernet = "󰤨 {ifname}: {ipaddr}/{cidr}";
 	format-linked = "󱚵 (NO IP)";
 	format-disconnected = "󰀝 Disconnected :(";
@@ -107,8 +107,8 @@ in
       };
       backlight = {
 	tooltip = false;
-	format = "{icon}: {percent}%";
-	format-icons = ["󰌶 " "󰌵 "];
+	format = "  {icon}: {percent}%";
+	format-icons = ["󰌶" "󰌵"];
 	on-scroll-down = "brightnessctl s -1%";
 	on-scroll-up = "brightnessctl s +1%";
       };
@@ -119,34 +119,34 @@ in
 	  critical = 15;
 	};
 	format = "{icon} : {capacity}%";
-	format-charging = "󱐋 : {capacity}%";
-	format-plugged = "󱐋 : {capacity}%";
+	format-charging = "󱐋:{capacity}%";
+	format-plugged = "󱐋:{capacity}%";
 	format-alt = "{icon} : {time}";
-	format-icons = ["  " "  " "  " "  " "  :D"];
+	format-icons = ["" "" "" "" ""];
       };
-      temprature = {
-	thermal-zone = 2;
-	hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+      temperature = {
+	# thermal-zone = 2;
+	# hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
 	critical_threshold = 80;
-	format-critical = "{tempratureC}󰔄 {icon} ";
-	format = "{icon} {tempratureC}󰔄 ";
-	format-icons = [" " " " " "];
+	format-critical = "󰸁 : {temperatureC}󰔄";
+	format = "{icon}: {temperatureC}󰔄 ";
+	format-icons = ["" "" ""];
       };
       pulseaudio = {
-	format = "{icon} : {volume}% {format_source}";
+	format = "{icon}: {volume}% {format_source}";
 	format-muted = "󰝟 {format_source}";
-	format-source = " : {volume}%";
+	format-source = ": {volume}%";
 	format-source-muted = " ";
 	format-bluetooth = "{icon} 󰂰 : {volume}% {format_source}";
 	format-bluetooth-muted = "󰂲 {format_source}";
 	format-icons = {
-	  headphone = "󰋋 ";
-	  hands-free = " ";
-	  headset = "󰋎 ";
-	  phone = " ";
-	  portable = "󰦢 ";
-	  car = " ";
-	  default = [" " "󰕾 " " "];
+	  headphone = "󰋋";
+	  hands-free = "";
+	  headset = "󰋎";
+	  phone = "";
+	  portable = "󰦢";
+	  car = "";
+	  default = ["" "󰕾" ""];
 	};
 	on-click = "pavucontrol";
       };
@@ -154,8 +154,8 @@ in
 	interval = 20;
 	local = "C";
 	timezone = "America/Los_Angeles";
-	format = "  : {:%I:%M %p}";
-	format-alt = "  : {:%a, %b %d}";
+	format = "󱑆 :{:%I:%M %p}";
+	format-alt = " :{:%a, %b %d}";
       };
     }];
     style = ''
