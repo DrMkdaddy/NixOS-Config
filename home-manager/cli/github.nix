@@ -7,6 +7,8 @@
       ci = "commit";
       co = "checkout";
       s = "status";
+      p = "push";
+      ca = "commit -a";
     };
     extraConfig = {
       credential.helper = "${
