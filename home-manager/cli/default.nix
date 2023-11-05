@@ -8,6 +8,6 @@ _: {
     ./btop.nix
     ./lf.nix
     ./kitty
-    ./alacritty.nix
+    ./alacritty
   ];
 }
