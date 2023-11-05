@@ -49,7 +49,7 @@ in
         format = promptFormat;
         directory = {
           format  = "\\[[  $path](bold fg:39)\\]";
-          truncation_length = 4;
+          truncation_length = 9;
           truncation_symbol = "…/";
         };
         git_branch = {
