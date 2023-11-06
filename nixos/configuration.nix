@@ -82,6 +82,11 @@
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
   };
+  virtualisation.podman = {
+    enable = true; 
+    dockerCompat = true; 
+    defaultNetwork.settings.dns_enabled = true;
+  };
   services.greetd = {
     enable = true;
     settings = rec {

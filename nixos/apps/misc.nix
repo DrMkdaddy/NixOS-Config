@@ -4,5 +4,6 @@
     vulkan-tools
     jre8
     temurin-jre-bin-17
+    geekbench
   ];
 }
