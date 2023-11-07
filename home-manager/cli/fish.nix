@@ -4,10 +4,12 @@
     shellInit = ''
       source (starship init fish --print-full-init | psub)
       zoxide init fish | source
-      abbr -a nxrb "sudo nixos-rebuild switch --flake /home/noor/Sysflake/"
-      abbr -a hmrb "home-manager switch --flake /home/noor/Sysflake/"
-      abbr -a ls "eza --icons=always -1"
-      abbr -a v "nvim"
     '';
+    shellAbbrs = {
+      nxrb = "sudo nixos-rebuild switch --flake /home/noor/Sysflake/";
+      hmrb = "home-manager switch --flake /home/noor/Sysflake/";
+      ls = "eza --icons=always -l";
+      v = "nvim";
+    };
   };
 }
