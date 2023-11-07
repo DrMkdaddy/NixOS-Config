@@ -8,5 +8,6 @@ _: {
     ./btop.nix
     ./lf
     ./kitty 
+    ./direnv.nix
   ];
 }
