@@ -62,10 +62,14 @@
     homeConfigurations = {
       "noor@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          ./home-manager/home.nix
-        ];
+        extraSpecialArgs = {
+	  inherit inputs outputs;
+	  flakeDir = /home/noor/Sysflake;
+	  configDir = /home/noor/.config;
+	};
+	modules = [
+	  ./home-manager/home.nix
+	];
       };
     };
   };
