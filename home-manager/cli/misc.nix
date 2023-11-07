@@ -22,6 +22,5 @@
     ripgrep
     repgrep
     lm_sensors
-    spotify-tui
   ];
 }
