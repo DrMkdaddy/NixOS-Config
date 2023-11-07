@@ -37,7 +37,6 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
-    system = "x86_64-linux";
     nixConfig = {
       extra-substituters = [
         "https://hyprland.cachix.org"

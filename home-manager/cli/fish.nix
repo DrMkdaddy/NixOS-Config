@@ -8,7 +8,7 @@
     shellAbbrs = {
       nxrb = "sudo nixos-rebuild switch --flake /home/noor/Sysflake/";
       hmrb = "home-manager switch --flake /home/noor/Sysflake/";
-      ls = "eza --icons=always -l";
+      ls = "eza --icons=always -1";
       v = "nvim";
     };
   };

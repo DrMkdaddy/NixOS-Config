@@ -21,7 +21,10 @@
 	enable = true;
 	servers = {
 	  nil_ls.enable = true; 
-	  elixirls.enable = true;
+	  elixirls = {
+	    enable = true;
+	    installLanguageServer = false;
+	  };
 	};
       };
       lsp-lines.enable = true;
