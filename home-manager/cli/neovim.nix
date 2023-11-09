@@ -24,7 +24,7 @@
 	  elixirls = {
 	    enable = true;
 	    installLanguageServer = false;
-	    cmd = "/usr/bin/env elixirls";
+	    cmd = ["/nix/store/90qh7n3zdk64jj7zglrb3wdriipvqsvn-elixir-ls-0.17.3/bin/elixir-ls"];
 	  };
 	};
       };
