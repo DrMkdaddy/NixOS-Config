@@ -24,6 +24,7 @@
 	  elixirls = {
 	    enable = true;
 	    installLanguageServer = false;
+	    cmd = "/usr/bin/env elixirls";
 	  };
 	};
       };

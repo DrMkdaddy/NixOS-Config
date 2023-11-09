@@ -10,6 +10,7 @@
       hmrb = "home-manager switch --flake /home/noor/Sysflake/";
       ls = "eza --icons=always -1";
       v = "nvim";
+      flake = "nix flake";
     };
   };
 }

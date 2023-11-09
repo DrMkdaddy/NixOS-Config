@@ -9,6 +9,7 @@
       s = "status";
       p = "push";
       ca = "commit -a";
+      ra = "remote add";
     };
     extraConfig = {
       credential.helper = "${
