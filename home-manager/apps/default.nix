@@ -6,5 +6,6 @@ _: {
      ./vscodium.nix
      ./spotify.nix
      ./anyrun.nix
+     ./kdeconnect.nix
   ];
 }
