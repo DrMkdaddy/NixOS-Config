@@ -9,5 +9,6 @@ _: {
     ./lf
     ./kitty 
     ./direnv.nix
+    ./tmux.nix
   ];
 }

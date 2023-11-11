@@ -125,8 +125,8 @@ in
 	format-icons = ["" "" "" "" ""];
       };
       temperature = {
-	# thermal-zone = 2;
-	# hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+	thermal-zone = 2;
+	hwmon-path = "/sys/devices/virtual/thermal/thermal_zone1/hwmon3/temp1_input";
 	critical_threshold = 80;
 	format-critical = "󰸁 : {temperatureC}󰔄";
 	format = "{icon}: {temperatureC}󰔄 ";
