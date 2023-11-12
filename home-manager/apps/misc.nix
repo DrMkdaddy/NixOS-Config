@@ -7,5 +7,6 @@
     thunderbird
     element-desktop
     prismlauncher
+    mpv
   ];
 }

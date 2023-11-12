@@ -6,7 +6,7 @@
       obs-gstreamer
       obs-pipewire-audio-capture
       obs-vkcapture
-      obs-studio-plugins.wlrobs
+      wlrobs
     ];
   };
 }

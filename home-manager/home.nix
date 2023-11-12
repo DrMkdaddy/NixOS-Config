@@ -18,6 +18,7 @@
     nerdfonts # stay
     twemoji-color-font
     mplus-outline-fonts.githubRelease
+    migmix
   ];
   systemd.user.startServices = "sd-switch";
   home = {

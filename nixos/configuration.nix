@@ -78,10 +78,10 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
+    wireplumber.enable=true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
   };
   services.system76-scheduler.settings.cfsProfiles.enable = true;
   services.tlp = {

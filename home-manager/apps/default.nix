@@ -7,5 +7,6 @@ _: {
      ./spotify.nix
      ./anyrun.nix
      ./kdeconnect.nix
-  ];
+    # ./obs-studio.nix
+];
 }
