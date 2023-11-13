@@ -9,23 +9,58 @@
     settings.vim = {
       viAlias = true;
       vimAlias = true;
+
+      autocomplete.enable = true;
+      autopairs.enable = true;
+      telescope.enable = true;
+
+
+      
+      statusline.lualine = {
+        enable = true;
+      };
+
       lsp = {
         enable = true;
         lsplines.enable = true;
+        nvim-docs-view.enable = true;
       };
+
       filetree.nvimTree = {
         enable = true;
       };
+
       theme = {
         enable = true;
         name = "tokyonight";
         style = "moon";
       };
+
       treesitter = {
         enable = true; 
         grammars = [
         ];
       };
+
+      presence.presence-nvim = {
+        enable = true;
+        enable_line_number = true;
+      };
+
+      ui = {
+        breadcrumbs = {
+          navbuddy.enable = true;
+        };
+      };
+
+      terminal = {
+        toggleterm = {
+          enable = true;
+          enable_winbar = true;
+          lazygit.enable = true;
+        };
+      };
+
       languages = {
         enableLSP = true;
         enableFormat = true;
@@ -41,7 +76,6 @@
           enable = true;
           crates.enable = true;
         };
-
       };
     };
   };
