@@ -36,6 +36,11 @@
     username = "noor";
     homeDirectory = "/home/noor";
   };
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = true;
+  };
   fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
 }
