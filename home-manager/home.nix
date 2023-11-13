@@ -27,6 +27,8 @@
     noto-fonts-emoji
     corefonts
     lmodern
+    font-awesome
+    powerline-fonts
   ];
   systemd.user.startServices = "sd-switch";
   home = {

@@ -23,5 +23,6 @@
     repgrep
     lm_sensors
     distrobox
+    xdg-utils
   ];
 }
