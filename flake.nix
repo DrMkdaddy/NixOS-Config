@@ -10,16 +10,13 @@
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprland.url = "github:hyprwm/Hyprland";
     nix-gaming.url = "github:fufexan/nix-gaming";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     anyrun-nixos-options.url = "github:n3oney/anyrun-nixos-options";
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    neovim-flake.url = "github:notashelf/neovim-flake";
   };
 
   outputs = {
@@ -29,9 +26,9 @@
     hyprland,
     spicetify-nix,
     anyrun,
-    anyrun-nixos-options, 
-    nixvim,
+    anyrun-nixos-options,
     pipewire-screenaudio,
+    neovim-flake,
     xdph,
     ...
   } @ inputs: let
@@ -62,13 +59,13 @@
       "noor@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {
-	  inherit inputs outputs;
-	  flakeDir = /home/noor/Sysflake;
-	  configDir = /home/noor/.config;
-	};
-	modules = [
-	  ./home-manager/home.nix
-	];
+          inherit inputs outputs;
+          flakeDir = /home/noor/Sysflake;
+          configDir = /home/noor/.config;
+        };
+        modules = [
+          ./home-manager/home.nix
+        ];
       };
     };
   };

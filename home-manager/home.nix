@@ -15,17 +15,25 @@
     allowUnfreePredicate = true;
   };
   home.packages = with pkgs; [
-    nerdfonts # stay
-    twemoji-color-font
-    mplus-outline-fonts.githubRelease
-    migmix
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "FiraCode"
+        "CascadiaCode"
+      ];
+    })
+    fira-go
+    noto-fonts
+    noto-fonts-emoji
+    corefonts
+    lmodern
   ];
   systemd.user.startServices = "sd-switch";
   home = {
+    stateVersion = "22.05";
     username = "noor";
     homeDirectory = "/home/noor";
   };
   fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
-  home.stateVersion = "22.05";
 }
