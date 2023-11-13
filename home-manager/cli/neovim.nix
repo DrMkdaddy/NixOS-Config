@@ -10,9 +10,9 @@
       viAlias = true;
       vimAlias = true;
       leaderKey = ";";
+      useSystemClipboard = true;
 
       autopairs.enable = true;
-      visuals.nvimWebDevicons.enable = true;
       telescope.enable = true;
       tabline.nvimBufferline.enable = true;
       comments.comment-nvim.enable = true;
@@ -57,6 +57,10 @@
 
       treesitter = {
         enable = true;
+        fold = true;
+        context = {
+          enable = true;
+        };
         grammars = [];
       };
 
@@ -72,9 +76,27 @@
         enable_line_number = true;
       };
 
+      utility = {
+        icon-picker.enable = true;
+      };
+
+      visuals = {
+        scrollBar.enable = true;
+        nvimWebDevicons.enable = true;
+        indentBlankline = {
+          enable = true;
+          eolChar = "EOL";
+          fillChar = "";
+          listChar = ".";
+        };
+        smoothScroll.enable = true;
+        cursorline.enable = true;
+      };
+
       ui = {
         illuminate.enable = true;
         breadcrumbs = {
+          enable = true;
           navbuddy.enable = true;
         };
         colorizer = {
@@ -84,6 +106,16 @@
             hsl_fn = true;
             rgb_fn = true;
             rrggbbaa = true;
+          };
+        };
+        smartcolumn = {
+          enable = true;
+          columnAt.languages = {
+            nix = 100;
+            python = 120;
+            lua = 100;
+            elixir = 120;
+            rust = 100;
           };
         };
       };

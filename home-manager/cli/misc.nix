@@ -24,5 +24,8 @@
     lm_sensors
     distrobox
     xdg-utils
+    gcc
+    nodejs
+    tree-sitter
   ];
 }
