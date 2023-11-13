@@ -11,8 +11,7 @@
     ./boot.nix
     ./apps
   ];
-  services.geoclue2.enable=true;
-  services.localtimed.enable = true;
+  time.timeZone = "America/Los_Angeles";
   nixpkgs = {
     config = {
       allowUnfree = true;
