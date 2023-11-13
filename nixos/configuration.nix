@@ -11,7 +11,8 @@
     ./boot.nix
     ./apps
   ];
-
+  services.geoclue2.enable=true;
+  services.localtimed.enable = true;
   nixpkgs = {
     config = {
       allowUnfree = true;
