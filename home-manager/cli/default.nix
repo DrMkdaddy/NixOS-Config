@@ -10,5 +10,6 @@ _: {
     ./kitty
     ./direnv.nix
     ./zellij.nix
+    ./alacritty
   ];
 }
