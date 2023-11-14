@@ -17,6 +17,7 @@
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     neovim-flake.url = "github:notashelf/neovim-flake";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
   };
 
   outputs = {
@@ -30,6 +31,7 @@
     pipewire-screenaudio,
     neovim-flake,
     xdph,
+    hyprpicker,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -39,11 +41,13 @@
         "https://hyprland.cachix.org"
         "https://nix-gaming.cachix.org"
         "https://anyrun.cachix.org"
+        "https://nix-community.cachix.org"
       ];
       extra-trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4"
         "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
     nixosConfigurations = {
