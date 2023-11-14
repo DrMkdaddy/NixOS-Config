@@ -125,6 +125,9 @@
           enable = true;
           enable_winbar = true;
           lazygit.enable = true;
+          mappings = {
+            open = "<leader>m";
+          };
         };
       };
 

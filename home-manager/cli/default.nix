@@ -7,8 +7,8 @@ _: {
     ./misc.nix
     ./btop.nix
     ./lf
-    ./kitty 
+    ./kitty
     ./direnv.nix
-    ./tmux.nix
+    ./zellij.nix
   ];
 }
