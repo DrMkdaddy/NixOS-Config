@@ -1,10 +1,12 @@
 {
-  builtins,
   pkgs,
+  lib,
   ...
 }: {
   programs.alacritty = {
     enable = true;
-    settings = builtins.readFile ./settings.yml ++ builtins.readFile ./theme.yml
+    settings = lib.attrsets.recursiveUpdate (import ./settings.nix) {
+      shell.program = "$(pkgs.fish)/bin/fish";
+    };
   };
 }
