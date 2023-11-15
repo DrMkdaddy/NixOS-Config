@@ -4,6 +4,9 @@
   ...
 }: {
   home.packages = with pkgs; let
+    # TODO: ADD SCRIPTS TO HANDLE VIDEO IN DIRECTORIES WITH MPV
+    # TODO: MAKE THAT BOOKMARK HANDLER
+    # TODO: RIP MORE STUFF OFF (WHY WRITE IT YOURSELF!!!!!!)
     emoji = pkgs.writeShellScriptBin "emoji" ''
       #!/bin/sh
       chosen=$(cut -d ';' -f1 ${./emoji} | tofi | sed "s/ .*//")
