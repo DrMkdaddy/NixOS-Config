@@ -11,5 +11,6 @@ _: {
     ./direnv.nix
     ./zellij.nix
     ./alacritty
+    ./tofi
   ];
 }

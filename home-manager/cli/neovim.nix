@@ -99,12 +99,9 @@
           navbuddy.enable = true;
         };
         colorizer = {
+          enable = true;
           options = {
             css = true;
-            css_fn = true;
-            hsl_fn = true;
-            rgb_fn = true;
-            rrggbbaa = true;
           };
         };
         smartcolumn = {

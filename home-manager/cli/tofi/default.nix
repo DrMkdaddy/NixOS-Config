@@ -25,6 +25,41 @@
     emoji
     wtype
   ];
-  xdg.configFile."tofi/config".text = {
-  };
+  xdg.configFile."tofi/config".text = ''
+    font = FiraCode Nerd Font
+    font-size = 13
+    horizontal = true
+    anchor = top
+    width = 100%
+    height = 40
+    outline-width = 0
+    border-width = 0
+    min-input-width = 120
+    result-spacing = 30
+    padding-top = 10
+    padding-bottom = 10
+    padding-left = 20
+    padding-right = 0
+    margin-top = 0
+    margin-bottom = 0
+    margin-left = 15
+    margin-right = 0
+    prompt-text = "-> "
+    prompt-padding = 301
+    background-color = #1a1b26
+    text-color = #cfc9c2
+    prompt-color = #bb9af7
+    prompt-background = #1a1b26
+    prompt-background-padding = 4, 10
+    prompt-background-corner-radius = 12
+    input-background = #1a1b26
+    input-background-padding = 4, 10
+    input-background-corner-radius = 12
+    selection-color = #7aa2f7
+    selection-background = #1a1b26
+    selection-background-padding = 4, 10
+    selection-background-corner-radius = 12
+    selection-match-color = #73daca
+    clip-to-padding = false
+  '';
 }
