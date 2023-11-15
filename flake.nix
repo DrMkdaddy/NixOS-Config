@@ -55,7 +55,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/configuration.nix
-          ./scripts
+          #          ./scripts
         ];
       };
     };

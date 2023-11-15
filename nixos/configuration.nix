@@ -18,7 +18,7 @@
     };
   };
   nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
   hardware.opengl = {
     enable = true;
@@ -29,7 +29,7 @@
       libvdpau-va-gl
     ];
   };
-  xdg.portal = { 
+  xdg.portal = {
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
@@ -49,14 +49,20 @@
   services.flatpak.enable = true;
   networking = {
     hostName = "nixos";
-    networkmanager.enable = true; 
+    networkmanager.enable = true;
     firewall = {
       enable = true;
       allowedTCPPortRanges = [
-	{ from = 1714; to = 1764; } # KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
       ];
       allowedUDPPortRanges = [
-	{ from = 1714; to = 1764; } # KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
       ];
     };
   };
@@ -67,7 +73,7 @@
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
       ];
-      extraGroups = ["wheel" "noor"];
+      extraGroups = ["wheel" "networkmanager" "noor"];
       useDefaultShell = true;
     };
   };
@@ -78,7 +84,7 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
-    wireplumber.enable=true;
+    wireplumber.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
@@ -94,8 +100,8 @@
     };
   };
   virtualisation.podman = {
-    enable = true; 
-    dockerCompat = true; 
+    enable = true;
+    dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true;
   };
   services.greetd = {
