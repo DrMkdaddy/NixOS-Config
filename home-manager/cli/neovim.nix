@@ -17,7 +17,6 @@
       tabline.nvimBufferline.enable = true;
       comments.comment-nvim.enable = true;
       dashboard.alpha.enable = true;
-      filetree.nvimTree.enable = true;
       notify.nvim-notify.enable = true;
 
       git = {
