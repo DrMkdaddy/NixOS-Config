@@ -10,12 +10,16 @@
     ./kernel.nix
     ./boot.nix
     ./apps
+    ./greetd.nix
   ];
   time.timeZone = "America/Los_Angeles";
   nixpkgs = {
     config = {
       allowUnfree = true;
     };
+  };
+  environment.sessionVariables = rec {
+    EDITOR = "${pkgs.neovim}/bim/nvim";
   };
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};

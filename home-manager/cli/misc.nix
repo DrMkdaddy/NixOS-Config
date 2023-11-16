@@ -27,5 +27,7 @@
     gcc
     nodejs
     tree-sitter
+    jq
+    unzip
   ];
 }

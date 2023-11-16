@@ -18,12 +18,17 @@
       	notify-send "'$chosen' copied to clipboard." &
       fi
     '';
+    zipmenu = pkgs.writeShellScriptBin "zipmenu" ''
+      #!/bin/sh
+      unzip $(eza -1 *.zip | tofi)
+    '';
   in [
     # for compatibility sake
     (writeScriptBin "dmenu" ''exec ${lib.getExe tofi}'')
     tofi
     emoji
     wtype
+    zipmenu
   ];
   xdg.configFile."tofi/config".text = ''
     font = FiraCode Nerd Font
