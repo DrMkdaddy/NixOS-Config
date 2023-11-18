@@ -4,6 +4,9 @@
     enableFishIntegration = true;
     settings = {
       scrollback_editor = "${pkgs.neovim}/bin/nvim";
+      copy_command = "wl-copy";
+      pane_frames = false;
+      default_layout = "compact";
       theme = "tokyo-night-dark";
       themes.tokyo-night-dark = {
         fg = "#A9B1D6";

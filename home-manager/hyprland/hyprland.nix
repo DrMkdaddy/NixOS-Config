@@ -44,6 +44,7 @@
           mouse_move_enables_dpms = true
           enable_swallow = true
           swallow_regex = ^(kitty)$
+          swallow_regex = ^(zellij)$
         }
 
         decoration {
@@ -145,6 +146,7 @@
       bind = SUPER, P, pseudo, # dwindle
       bind = SUPER, S, togglesplit, # dwindle
       bind = SUPER, R, exec, anyrun
+      bind = SUPER, E, exec, emoji
 
       bind = ,Print,exec,grimblast copysave screen && notify-send "Screenshot Saved"
       bind = SUPER + SHIFT, Print, exec, grimblast copysave active && notify-send "Screenshot Saved"

@@ -32,7 +32,7 @@
   ];
   xdg.configFile."tofi/config".text = ''
     font = FiraCode Nerd Font
-    font-size = 13
+    font-size = 11
     horizontal = true
     anchor = top
     width = 100%

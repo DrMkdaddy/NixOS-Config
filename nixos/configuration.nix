@@ -19,7 +19,7 @@
     };
   };
   environment.sessionVariables = rec {
-    EDITOR = "${pkgs.neovim}/bim/nvim";
+    EDITOR = "/home/noor/.nix-profile/bin/nvim";
   };
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
@@ -107,16 +107,6 @@
     enable = true;
     dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true;
-  };
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
-        user = "noor";
-      };
-      default_session = initial_session;
-    };
   };
   services.power-profiles-daemon.enable = false;
   powerManagement.powertop.enable = true;

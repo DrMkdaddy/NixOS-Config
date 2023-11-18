@@ -29,5 +29,6 @@
     tree-sitter
     jq
     unzip
+    nix-your-shell
   ];
 }
