@@ -22,6 +22,10 @@
       #!/bin/sh
       unzip $(eza -1 *.zip | tofi)
     '';
+    rgmenu = pkgs.writeShellScriptBin "rgmenu" ''
+      #!/bin/sh
+      nvim $(rg ''$1 | cut -f1 -d ":" | tofi)
+    '';
   in [
     # for compatibility sake
     (writeScriptBin "dmenu" ''exec ${lib.getExe tofi}'')
@@ -29,6 +33,7 @@
     emoji
     wtype
     zipmenu
+    rgmenu
   ];
   xdg.configFile."tofi/config".text = ''
     font = FiraCode Nerd Font

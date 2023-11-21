@@ -12,5 +12,6 @@ _: {
     ./zellij.nix
     ./alacritty
     ./tofi
+    ./zerotier.nix
   ];
 }

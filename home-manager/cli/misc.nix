@@ -30,5 +30,8 @@
     jq
     unzip
     nix-your-shell
+    bat
+    fd
+    zerotier
   ];
 }
