@@ -29,6 +29,7 @@
     lmodern
     font-awesome
     powerline-fonts
+    rounded-mgenplus
   ];
   systemd.user.startServices = "sd-switch";
   home = {

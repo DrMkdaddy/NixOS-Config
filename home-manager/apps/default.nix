@@ -7,6 +7,5 @@ _: {
     ./anyrun.nix
     ./kdeconnect.nix
     ./toolkits
-    ./syncthing.nix
   ];
 }
