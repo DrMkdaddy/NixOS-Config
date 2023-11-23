@@ -12,5 +12,6 @@ _: {
     ./zellij.nix
     ./alacritty
     ./tofi
+    ./wezterm.nix
   ];
 }
