@@ -4,7 +4,10 @@
   lib,
   ...
 }: {
-  imports = [inputs.hyprland.homeManagerModules.default];
+  imports = [
+    inputs.hyprland.homeManagerModules.default
+    ./config.nix
+  ];
   home.packages = [
     inputs.hyprpicker
   ];
