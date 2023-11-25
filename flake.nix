@@ -18,6 +18,10 @@
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     neovim-flake.url = "github:notashelf/neovim-flake";
     hyprpicker.url = "github:hyprwm/hyprpicker";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = {
