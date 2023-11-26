@@ -73,8 +73,8 @@
           configDir = /home/noor/.config;
         };
         modules = [
-          ./home-manager/home.nix
-        ];
+          ./home-manager
+       ];
       };
     };
   };
