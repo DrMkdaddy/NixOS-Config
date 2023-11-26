@@ -5,11 +5,6 @@
   lib,
   ...
 }: {
-  imports = [
-    ./hyprland
-    ./cli
-    ./apps
-  ];
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = true;
