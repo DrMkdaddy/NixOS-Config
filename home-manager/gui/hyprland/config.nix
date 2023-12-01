@@ -1,14 +1,11 @@
 {
   wayland.windowManager.hyprland.extraConfig = ''
       exec-once = wl-clipboard-history -t
-      exec-once = ~/.config/hypr/xdg-portal-hyprland
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-      #exec-once = wlsunset -S 9:00 -s 19:30
       exec-once = swww init
       exec-once = swww img ~/.wallpapers/monokaiscape.webp
       exec-once = dunst
-      exec-once = swayosd-server
 
       monitor= DP-3,preferred,1920x0,1
       workspace= DP-3,1

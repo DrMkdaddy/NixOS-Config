@@ -6,6 +6,7 @@ _: {
     ./spotify.nix
     ./anyrun.nix
     ./kdeconnect.nix
+    ./chromium.nix
     ./toolkits
   ];
 }

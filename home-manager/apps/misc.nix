@@ -12,5 +12,6 @@
     mpv
     armcord
     rustdesk
+    chromium
   ];
 }

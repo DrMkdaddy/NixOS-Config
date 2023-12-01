@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   programs.zellij = {
     enable = true;
-    enableFishIntegration = true;
     settings = {
       scrollback_editor = "${pkgs.neovim}/bin/nvim";
       copy_command = "wl-copy";
