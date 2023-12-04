@@ -7,6 +7,7 @@ _: {
     ./anyrun.nix
     ./kdeconnect.nix
     ./chromium.nix
+    ./syncthing.nix
     ./toolkits
   ];
 }

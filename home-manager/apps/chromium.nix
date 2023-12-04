@@ -1,3 +1,9 @@
-{pkgs, ...}: {
-  programs.ungoogled.chromium.enable = true;
+{
+  pkgs,
+  nixpkgs,
+  ...
+}: {
+  programs.chromium = {
+    enable = true;
+  };
 }
