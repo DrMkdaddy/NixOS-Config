@@ -10,6 +10,7 @@ _: {
     ./kitty
     ./direnv.nix
     ./zellij.nix
+    ./zerotier.nix
     ./alacritty
     ./tofi
   ];
