@@ -15,7 +15,6 @@
     eza
     libnotify
     xdragon
-    freshfetch
     tmatrix
     psmisc
     swayosd
@@ -32,6 +31,6 @@
     nix-your-shell
     bat
     fd
-    # zerotierone
+    fastfetch
   ];
 }

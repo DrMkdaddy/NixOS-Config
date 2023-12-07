@@ -9,6 +9,7 @@
     ./hardware/laptop-hardware.nix
     ./kernel.nix
     ./boot.nix
+    ./zerotier.nix
     ./apps
     ./greetd.nix
   ];

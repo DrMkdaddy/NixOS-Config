@@ -13,5 +13,6 @@
     armcord
     rustdesk
     chromium
+    nicotine-plus
   ];
 }
