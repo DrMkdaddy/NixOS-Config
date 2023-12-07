@@ -8,6 +8,7 @@ _: {
     ./kdeconnect.nix
     ./chromium.nix
     ./syncthing.nix
+    ./mopidy.nix
     ./toolkits
   ];
 }

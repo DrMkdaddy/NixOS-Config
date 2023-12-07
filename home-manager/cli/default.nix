@@ -13,6 +13,5 @@ _: {
     ./alacritty
     ./tofi
     ./ncmpcpp.nix
-    # ./mpd.nix
   ];
 }
