@@ -8,7 +8,6 @@
   imports = [
     ./hardware/laptop-hardware.nix
     ./kernel.nix
-    ./boot.nix
     ./zerotier.nix
     ./apps
     ./greetd.nix
@@ -40,6 +39,7 @@
       pkgs.xdg-desktop-portal-gtk
       inputs.xdph.packages.x86_64-linux.xdg-desktop-portal-hyprland
     ];
+    config.common.default = "*";
   };
   nix = {
     registry = lib.mapAttrs (_: value: {flake = value;}) inputs;

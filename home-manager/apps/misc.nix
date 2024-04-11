@@ -11,7 +11,6 @@
     prismlauncher
     mpv
     armcord
-    rustdesk
     chromium
     nicotine-plus
   ];
