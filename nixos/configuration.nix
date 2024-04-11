@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./hardware/laptop-hardware.nix
+    ./hardware/laptop
     ./kernel.nix
     ./zerotier.nix
     ./apps
