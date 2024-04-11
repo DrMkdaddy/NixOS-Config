@@ -22,10 +22,6 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    inputs.ragenix = {
-      url = "github:yaxitech/ragenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -40,7 +36,6 @@
     neovim-flake,
     xdph,
     hyprpicker,
-    ragenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -65,7 +60,6 @@
         modules = [
           ./nixos/configuration.nix
           #          ./scripts
-          ragenix.nixosModules.default
         ];
       };
     };
