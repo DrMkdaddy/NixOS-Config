@@ -11,6 +11,7 @@
     ./zerotier.nix
     ./apps
     ./greetd.nix
+    ./ssh.nix
   ];
   time.timeZone = "America/Los_Angeles";
   nixpkgs = {
