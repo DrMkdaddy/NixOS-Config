@@ -46,7 +46,7 @@
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
-      experimental-features = "nix-command flakes";
+      experimental-features = ["nix-command" "flakes" "recursive-nix"];
       auto-optimise-store = true;
     };
   };
