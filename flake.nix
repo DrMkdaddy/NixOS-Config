@@ -74,7 +74,7 @@
         };
         modules = [
           ./home-manager
-       ];
+        ];
       };
     };
   };
