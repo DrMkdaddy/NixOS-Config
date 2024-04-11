@@ -9,5 +9,6 @@
     temurin-jre-bin-17
     geekbench
     tk
+    keychain
   ];
 }
