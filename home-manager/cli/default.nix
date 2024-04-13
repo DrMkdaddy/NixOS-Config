@@ -13,5 +13,6 @@ _: {
     ./alacritty
     ./tofi
     ./ncmpcpp.nix
+    ./yazi.nix
   ];
 }
