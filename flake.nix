@@ -23,6 +23,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     yazi.url = "github:sxyazi/yazi";
+    swwwitch.url = "github:nirudium/swwwitch";
   };
 
   outputs = {
@@ -38,6 +39,7 @@
     xdph,
     hyprpicker,
     yazi,
+    swwwitch,
     ...
   } @ inputs: let
     inherit (self) outputs;
