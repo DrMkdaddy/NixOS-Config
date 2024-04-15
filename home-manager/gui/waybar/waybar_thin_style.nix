@@ -39,7 +39,7 @@ in {
         "custom/archlogo" = {
           tooltip = false;
           format = "  ";
-          on-click = "swwwitch";
+          on-click = "swwwitch2";
         };
         "custom/wmname" = {
           tooltip = false;
