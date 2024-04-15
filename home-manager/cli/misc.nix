@@ -36,5 +36,6 @@
     bat
     fd
     fastfetch
+    inotify-tools
   ];
 }

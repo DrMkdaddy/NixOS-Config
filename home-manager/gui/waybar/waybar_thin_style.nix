@@ -76,8 +76,8 @@ in {
         };
         network = {
           tooltip = true;
-          format-wifi = "󰤨  {signalStrength}%";
-          format-ethernet = "󰤨 {ifname}: {ipaddr}/{cidr}";
+          format-wifi = "󰤨 {signalStrength}%";
+          format-ethernet = "󰤨 {ifname} {ipaddr}/{cidr}";
           format-linked = "󱚵 (NO IP)";
           format-disconnected = "󰀝 Disconnected :(";
           tooltip-format = "{essid} - {ipaddr}";
