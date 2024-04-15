@@ -4,8 +4,8 @@
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
       exec-once = swww init
-      exec-once = swww img ~/.wallpapers/monokaiscape.webp
       exec-once = dunst
+      exec-once = waybar
 
       monitor= DP-3,preferred,1920x0,1
       workspace= DP-3,1

@@ -3,38 +3,34 @@
   lib,
   ...
 }: let
-  dir = ./monokai;
+  dir = ./thin_style;
 in {
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
     settings = [
       {
         layer = "top";
-        position = "top";
-        height = 33;
+        position = "bottom";
+        height = 13;
         width = 1920;
-        margin = "3, 0, 2, 0";
+        margin = "2, 0, 1, 0";
 
         # Modules
         modules-left = [
-          "custom/archlogo"
-          "custom/wmname"
-          "hyprland/workspaces"
           "cpu"
           "memory"
+          "temperature"
           "network"
           "custom/recorder"
           "custom/audiorec"
         ];
         modules-center = [
-          #	"custom/spotify" # TODO CHANGE TO NOT FUCKING SUCK. USE MPD OR SOMETHING NORMAL NOT A BUMFUCK RANDOM PYTHON SCRIPT
-          "tray"
+          "custom/archlogo"
+          "hyprland/workspaces"
         ];
         modules-right = [
           "backlight"
           "battery"
-          "temperature"
           "pulseaudio"
           "clock"
         ];
@@ -42,7 +38,8 @@ in {
         # Left Side Modules
         "custom/archlogo" = {
           tooltip = false;
-          format = "    ";
+          format = "  ";
+          on-click = "swwwitch";
         };
         "custom/wmname" = {
           tooltip = false;
@@ -67,22 +64,23 @@ in {
         };
         cpu = {
           tooltip = false;
-          format = " :{usage}%";
-          on-click = "kitty -e btop";
+          format = "  {usage}%";
+          on-click = "${pkgs.kitty}/bin/kitty -e btop";
         };
         memory = {
           tooltip = false;
-          format = " :{used:0.2f}GB";
+          format = " {used:0.2f}GB";
           max-length = 10;
           warning = 70;
           critical = 90;
         };
         network = {
-          tooltip = false;
-          format-wifi = "{essid} 󰤨 :{signalStrength}%     ";
+          tooltip = true;
+          format-wifi = "󰤨  {signalStrength}%";
           format-ethernet = "󰤨 {ifname}: {ipaddr}/{cidr}";
           format-linked = "󱚵 (NO IP)";
           format-disconnected = "󰀝 Disconnected :(";
+          tooltip-format = "{essid} - {ipaddr}";
         };
         "custom/recorder" = {
           format = "󰄄 Rec";
@@ -110,10 +108,10 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = "  {icon}: {percent}%";
+          format = "{icon} {percent}%";
           format-icons = ["󰌶" "󰌵"];
-          on-scroll-down = "brightnessctl s -1%";
-          on-scroll-up = "brightnessctl s +1%";
+          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl s 1%-";
+          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl s +1%";
         };
         battery = {
           tooltip = false;
@@ -121,26 +119,24 @@ in {
             warning = 30;
             critical = 15;
           };
-          format = "{icon} : {capacity}%";
-          format-charging = "󱐋:{capacity}%";
-          format-plugged = "󱐋:{capacity}%";
-          format-alt = "{icon} : {time}";
+          format = "{icon}  {capacity}%";
+          format-charging = "󱐋 {capacity}%";
+          format-plugged = "󱐋 {capacity}%";
           format-icons = ["" "" "" "" ""];
         };
         temperature = {
-          thermal-zone = 2;
-          hwmon-path = "/sys/devices/virtual/thermal/thermal_zone1/hwmon3/temp1_input";
+          hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input";
           critical_threshold = 80;
-          format-critical = "󰸁 : {temperatureC}󰔄";
-          format = "{icon}: {temperatureC}󰔄 ";
+          format-critical = "󰸁 {temperatureC}󰔄";
+          format = "{icon} {temperatureC}󰔄";
           format-icons = ["" "" ""];
         };
         pulseaudio = {
-          format = "{icon}: {volume}% {format_source}";
+          format = "{icon} {volume}% {format_source}";
           format-muted = "󰝟 {format_source}";
-          format-source = ": {volume}%";
+          format-source = " {volume}%";
           format-source-muted = " ";
-          format-bluetooth = "{icon} 󰂰 : {volume}% {format_source}";
+          format-bluetooth = "{icon} 󰂰 {volume}% {format_source}";
           format-bluetooth-muted = "󰂲 {format_source}";
           format-icons = {
             headphone = "󰋋";
@@ -151,14 +147,14 @@ in {
             car = "";
             default = ["" "󰕾" ""];
           };
-          on-click = "pavucontrol";
+          on-click = "killall ${pkgs.pavucontrol}/bin/pavucontrol | ${pkgs.pavucontrol}/bin/pavucontrol";
         };
         clock = {
           interval = 20;
           local = "C";
           timezone = "America/Los_Angeles";
-          format = "󱑆 :{:%I:%M %p}";
-          format-alt = " :{:%a, %b %d}";
+          format = "󱑆 {:%I:%M %p}";
+          format-alt = " {:%a, %b %d}";
         };
       }
     ];

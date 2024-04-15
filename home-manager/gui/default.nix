@@ -4,5 +4,6 @@ _: {
     ./hyprland
     ./waybar
     # ./anyrun.nix
+    ./wallpapers
   ];
 }

@@ -39,9 +39,9 @@
     font = FiraCode Nerd Font
     font-size = 11
     horizontal = true
-    anchor = top
+    anchor = bottom
     width = 100%
-    height = 40
+    height = 16
     outline-width = 0
     border-width = 0
     min-input-width = 120

@@ -39,4 +39,7 @@
   };
   fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
+  home.sessionVariables = {
+    XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/.screenshots/";
+  };
 }

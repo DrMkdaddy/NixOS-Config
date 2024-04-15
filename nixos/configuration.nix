@@ -37,6 +37,7 @@
   };
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       inputs.xdph.packages.x86_64-linux.xdg-desktop-portal-hyprland

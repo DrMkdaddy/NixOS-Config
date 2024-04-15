@@ -1,5 +1,5 @@
-_:{
+_: {
   imports = [
-    ./waybar.nix
+    ./waybar_thin_style.nix
   ];
 }
