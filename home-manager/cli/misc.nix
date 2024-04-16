@@ -37,6 +37,6 @@
     fd
     fastfetch
     inotify-tools
-    swwwitch
+    inputs.swwwitch
   ];
 }

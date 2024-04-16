@@ -23,7 +23,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     yazi.url = "github:sxyazi/yazi";
-    swwwitch.url = "github:nirudium/swwwitch";
+    swwwitch.url = "github:drmkdaddy/swwwitch";
   };
 
   outputs = {

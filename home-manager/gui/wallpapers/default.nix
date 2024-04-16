@@ -8,7 +8,7 @@
   home.file.".wallpapers".source = ./img;
   # Shamelessly plagrized from https://github.com/sayanta01/dotfiles/blob/main/.local/bin/wallch
   home.packages = with pkgs; let
-    swwwitch2 = pkgs.writeShellScriptBin "swwwitch" ''
+    swwwitch2 = pkgs.writeShellScriptBin "swwwitch2" ''
       #!/bin/sh
       dir="${config.home.homeDirectory}/.wallpapers/"
       BG="$(find "$dir" -name '*.jpg' -o -name '*.png' -o -name '*.gif' | shuf -n1)"

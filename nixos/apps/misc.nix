@@ -10,5 +10,6 @@
     geekbench
     tk
     keychain
+    inputs.hyprpicker
   ];
 }

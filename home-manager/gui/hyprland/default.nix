@@ -8,9 +8,6 @@
     inputs.hyprland.homeManagerModules.default
     ./config.nix
   ];
-  home.packages = [
-    inputs.hyprpicker
-  ];
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [

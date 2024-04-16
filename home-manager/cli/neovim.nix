@@ -70,7 +70,7 @@
         };
       };
 
-      presence.presence-nvim = {
+      presence.neocord = {
         enable = true;
         enable_line_number = true;
       };
