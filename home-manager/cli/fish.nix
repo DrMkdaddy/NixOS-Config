@@ -8,7 +8,6 @@
     shellInit = ''
       source (starship init fish --print-full-init | psub)
       zoxide init fish | source
-      nix-your-shell fish | source
       set -x DIRENV_LOG_FORMAT ""
       set fish_greeting
     '';

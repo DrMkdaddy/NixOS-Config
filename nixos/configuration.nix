@@ -23,6 +23,9 @@
   environment.sessionVariables = rec {
     EDITOR = "/home/noor/.nix-profile/bin/nvim";
   };
+  environment.systemPackages = [
+    inputs.swwwitch
+  ];
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };

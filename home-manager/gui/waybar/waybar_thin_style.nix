@@ -39,7 +39,7 @@ in {
         "custom/archlogo" = {
           tooltip = false;
           format = "  ";
-          on-click = "swwwitch2";
+          on-click = "nix run github:drmkdaddy/swwwitch";
         };
         "custom/wmname" = {
           tooltip = false;

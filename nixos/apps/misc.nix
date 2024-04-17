@@ -11,5 +11,7 @@
     tk
     keychain
     inputs.hyprpicker
+    valgrind
+    gdb
   ];
 }

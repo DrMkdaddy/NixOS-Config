@@ -32,11 +32,9 @@
     tree-sitter
     jq
     unzip
-    nix-your-shell
     bat
     fd
     fastfetch
     inotify-tools
-    inputs.swwwitch
   ];
 }
