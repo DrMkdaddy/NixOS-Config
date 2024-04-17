@@ -36,5 +36,6 @@
     fd
     fastfetch
     inotify-tools
+    nix-your-shell
   ];
 }

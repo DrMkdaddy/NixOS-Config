@@ -6,6 +6,7 @@
   programs.fish = {
     enable = true;
     shellInit = ''
+      nix-your-shell fish | source
       source (starship init fish --print-full-init | psub)
       zoxide init fish | source
       set -x DIRENV_LOG_FORMAT ""
