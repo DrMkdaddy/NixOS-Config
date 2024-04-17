@@ -33,7 +33,6 @@
     hyprland,
     spicetify-nix,
     anyrun,
-    anyrun-nixos-options,
     pipewire-screenaudio,
     neovim-flake,
     xdph,
