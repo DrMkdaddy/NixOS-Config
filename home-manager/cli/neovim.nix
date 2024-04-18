@@ -18,6 +18,7 @@
       comments.comment-nvim.enable = true;
       dashboard.alpha.enable = true;
       notify.nvim-notify.enable = true;
+      enableLuaLoader = true;
 
       git = {
         enable = true;
@@ -37,6 +38,10 @@
           enable = true;
           treesitter.enable = true;
         };
+      };
+
+      binds = {
+        cheatsheet.enable = true;
       };
 
       lsp = {
@@ -130,6 +135,7 @@
         elixir.enable = true;
         html.enable = true;
         lua.enable = true;
+        css.enable = true;
         markdown.enable = true;
         nix.enable = true;
         python = {

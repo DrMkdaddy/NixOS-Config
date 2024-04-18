@@ -150,11 +150,12 @@ in {
           on-click = "killall ${pkgs.pavucontrol}/bin/pavucontrol | ${pkgs.pavucontrol}/bin/pavucontrol";
         };
         clock = {
+          tooltip = true;
           interval = 20;
           local = "C";
           timezone = "America/Los_Angeles";
           format = "󱑆 {:%I:%M %p}";
-          format-alt = " {:%a, %b %d}";
+          tooltip-format = " {:%a, %b %d}";
         };
       }
     ];
