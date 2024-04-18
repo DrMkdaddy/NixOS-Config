@@ -11,10 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-    anyrun-nixos-options.url = "github:n3oney/anyrun-nixos-options";
-    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     neovim-flake.url = "github:notashelf/neovim-flake";
     hyprpicker.url = "github:hyprwm/hyprpicker";
@@ -33,7 +30,6 @@
     hyprland,
     spicetify-nix,
     anyrun,
-    pipewire-screenaudio,
     neovim-flake,
     xdph,
     hyprpicker,
