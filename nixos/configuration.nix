@@ -20,7 +20,7 @@
       allowUnfree = true;
     };
   };
-  environment.sessionVariables = rec {
+  environment.sessionVariables = {
     EDITOR = "/home/noor/.nix-profile/bin/nvim";
   };
   environment.systemPackages = [
@@ -52,7 +52,7 @@
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
-      experimental-features = ["nix-command" "flakes" "recursive-nix"];
+      experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
     };
   };
@@ -80,12 +80,12 @@
   boot.loader.systemd-boot.enable = true;
   users.users = {
     noor = {
-      initialPassword = "noor";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
       ];
       extraGroups = ["wheel" "networkmanager" "noor"];
       useDefaultShell = true;
+      hashedPassword = "$6$h96Ka8kYUksTQ/M7$Hi9DFYLtyJqea2hDrHqY.PBdugzB0GIzY4hDVrjC0ePpsuj133k3KfhuDpuyucfZVkPkEM/SZMtQbqb3qeTtL.";
     };
   };
   users.defaultUserShell = pkgs.fish;
