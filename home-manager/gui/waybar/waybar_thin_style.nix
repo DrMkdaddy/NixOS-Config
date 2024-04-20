@@ -147,7 +147,7 @@ in {
             car = "";
             default = ["" "󰕾" ""];
           };
-          on-click = "killall ${pkgs.pavucontrol}/bin/pavucontrol | ${pkgs.pavucontrol}/bin/pavucontrol";
+          on-click = "kill $(pgrep pavucontrol) || ${pkgs.pavucontrol}/bin/pavucontrol";
         };
         clock = {
           tooltip = true;
@@ -155,7 +155,7 @@ in {
           local = "C";
           timezone = "America/Los_Angeles";
           format = "󱑆 {:%I:%M %p}";
-          tooltip-format = " {:%a, %b %d}";
+          tooltip-format = "{:%a, %b %d}";
         };
       }
     ];

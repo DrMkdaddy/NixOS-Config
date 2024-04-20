@@ -24,7 +24,7 @@
     '';
     rgmenu = pkgs.writeShellScriptBin "rgmenu" ''
       #!/bin/sh
-      nvim $(rg ''$1 | cut -f1 -d ":" | tofi)
+      $EDITOR $(rg ''$1 | cut -f1 -d ":" | tofi)
     '';
   in [
     # for compatibility sake
