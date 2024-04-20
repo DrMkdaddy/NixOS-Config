@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [inputs.neovim-flake.homeManagerModules.default];
   programs.neovim-flake = {
     enable = true;
@@ -80,13 +76,15 @@
       };
 
       visuals = {
+        enable = true;
         scrollBar.enable = true;
         nvimWebDevicons.enable = true;
         indentBlankline = {
+          scope = {
+            enabled = true;
+          };
           enable = true;
-          eolChar = "EOL";
-          fillChar = "";
-          listChar = ".";
+          eolChar = " ";
         };
         smoothScroll.enable = true;
         cursorline.enable = true;
@@ -116,14 +114,12 @@
         };
       };
 
-      terminal = {
-        toggleterm = {
-          enable = true;
-          enable_winbar = true;
-          lazygit.enable = true;
-          mappings = {
-            open = "<leader>m";
-          };
+      terminal.toggleterm = {
+        enable = true;
+        enable_winbar = true;
+        lazygit.enable = true;
+        mappings = {
+          open = "<leader>m";
         };
       };
 
@@ -132,21 +128,24 @@
         enableFormat = true;
         enableTreesitter = true;
         # Languages to Enable
-        elixir.enable = true;
-        html.enable = true;
-        lua.enable = true;
-        css.enable = true;
-        markdown.enable = true;
-        nix.enable = true;
+        rust = {
+          enable = true;
+          crates.enable = true;
+        };
         python = {
           enable = true;
           lsp.enable = true;
           format.enable = true;
         };
-        rust = {
+        nix = {
           enable = true;
-          crates.enable = true;
+          extraDiagnostics.enable = true;
         };
+        elixir.enable = true;
+        html.enable = true;
+        lua.enable = true;
+        css.enable = true;
+        markdown.enable = true;
       };
     };
   };
