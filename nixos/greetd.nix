@@ -27,8 +27,7 @@ in {
   };
 
   environment.etc."greetd/environments".text = ''
-    Hyprland
-    fish
     bash
+    fish
   '';
 }
