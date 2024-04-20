@@ -5,7 +5,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "${tuigreet} --time --remember --cmd Hyprland";
+        command = "${tuigreet} --time --remember --cmd bash";
         user = "greeter";
       };
     };
@@ -27,6 +27,7 @@ in {
   };
 
   environment.etc."greetd/environments".text = ''
+    Hyrpland
     bash
     fish
   '';
