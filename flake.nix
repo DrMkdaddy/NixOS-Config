@@ -45,7 +45,7 @@
     systems = [
       {
         name = "idris";
-        modules = [];
+        modules = [./idris];
         system = systems'.x86_64-linux;
       }
       {
