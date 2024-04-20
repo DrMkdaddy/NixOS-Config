@@ -1,4 +1,0 @@
-{pkgs}:
-pkgs.writeShellApplication "bookmark" ''
-
-''
