@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; let
     # TODO: ADD SCRIPTS TO HANDLE VIDEO IN DIRECTORIES WITH MPV
     # TODO: MAKE THAT BOOKMARK HANDLER
@@ -46,9 +42,9 @@
     border-width = 0
     min-input-width = 120
     result-spacing = 30
-    padding-top = 10
-    padding-bottom = 10
-    padding-left = 20
+    padding-top = 0
+    padding-bottom = 0
+    padding-left = 0
     padding-right = 0
     margin-top = 0
     margin-bottom = 0

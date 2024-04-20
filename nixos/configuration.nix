@@ -16,7 +16,7 @@
   ];
   time.timeZone = "America/Los_Angeles";
   nixpkgs = {
-    packageOverrides = pkgs: {
+    config.packageOverrides = pkgs: {
       vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
     };
     config.allowUnfree = true;
