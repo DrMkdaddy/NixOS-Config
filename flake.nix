@@ -27,14 +27,6 @@
     self,
     nixpkgs,
     home-manager,
-    hyprland,
-    spicetify-nix,
-    anyrun,
-    neovim-flake,
-    xdph,
-    hyprpicker,
-    yazi,
-    swwwitch,
     ...
   } @ inputs: let
     inherit (self) outputs;

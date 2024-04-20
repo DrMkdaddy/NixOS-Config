@@ -14,5 +14,6 @@ _: {
     ./tofi
     ./ncmpcpp.nix
     ./yazi.nix
+    ./nh.nix
   ];
 }

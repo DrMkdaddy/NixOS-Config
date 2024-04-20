@@ -16,19 +16,16 @@
   ];
   time.timeZone = "America/Los_Angeles";
   nixpkgs = {
-    config = {
-      allowUnfree = true;
+    packageOverrides = pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
     };
+    config.allowUnfree = true;
   };
   environment.sessionVariables = {
     EDITOR = "/home/noor/.nix-profile/bin/nvim";
   };
   environment.systemPackages = [
-    inputs.swwwitch
   ];
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
-  };
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -91,7 +88,6 @@
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
   security.rtkit.enable = true;
-  environment.binsh = "${pkgs.dash}/bin/dash";
   services.pipewire = {
     enable = true;
     alsa.enable = true;
