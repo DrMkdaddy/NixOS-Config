@@ -82,7 +82,8 @@
       ];
       extraGroups = ["wheel" "networkmanager" "noor"];
       useDefaultShell = true;
-      hashedPassword = "$6$h96Ka8kYUksTQ/M7$Hi9DFYLtyJqea2hDrHqY.PBdugzB0GIzY4hDVrjC0ePpsuj133k3KfhuDpuyucfZVkPkEM/SZMtQbqb3qeTtL.";
+      # hashedPassword = "$6$h96Ka8kYUksTQ/M7$Hi9DFYLtyJqea2hDrHqY.PBdugzB0GIzY4hDVrjC0ePpsuj133k3KfhuDpuyucfZVkPkEM/SZMtQbqb3qeTtL.";
+      initialPassword = "";
     };
   };
   users.defaultUserShell = pkgs.fish;
