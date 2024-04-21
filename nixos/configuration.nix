@@ -15,12 +15,7 @@
     ./ssh.nix
   ];
   time.timeZone = "America/Los_Angeles";
-  nixpkgs = {
-    config.packageOverrides = pkgs: {
-      vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
-    };
-    config.allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
   environment.sessionVariables = {
     EDITOR = "/home/noor/.nix-profile/bin/nvim";
   };
@@ -30,7 +25,9 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      vaapiIntel
+      (vaapiIntel.override {
+        enableHybridCodec = true;
+      })
       vaapiVdpau
       libvdpau-va-gl
     ];
