@@ -12,7 +12,6 @@ _: {
     ./zellij.nix
     ./alacritty
     ./tofi
-    ./ncmpcpp.nix
     ./yazi.nix
   ];
 }
