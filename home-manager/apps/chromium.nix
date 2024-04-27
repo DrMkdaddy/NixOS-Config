@@ -1,8 +1,4 @@
-{
-  pkgs,
-  nixpkgs,
-  ...
-}: {
+_: {
   programs.chromium = {
     enable = true;
   };
