@@ -23,7 +23,7 @@ in {
       exec-once = ''${startupScript}/bin/start'';
       bind =
         [
-          "$mod, M, exec, /usr/bin/env  kitty"
+          "$mod, M, exec, ${pkgs.kitty}/bin/kitty"
           ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
           ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
           "$mod, I, exec, hyprpicker -f hex -a"
@@ -181,6 +181,7 @@ in {
         "float, dragon-drop"
         "pin, dragon-drop"
       ];
+      layerrule = ["ignorezero, waybar"];
     };
   };
 }
