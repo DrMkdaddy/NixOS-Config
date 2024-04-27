@@ -24,13 +24,13 @@ in {
       bind =
         [
           "$mod, M, exec, /usr/bin/env  kitty"
-          "XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-          "XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+          ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+          ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
           "$mod, I, exec, hyprpicker -f hex -a"
-          "XF86AudioPlay, exec, playerctl play-pause"
-          "XF86AudioPause, exec, playerctl play-pause"
-          "XF86AudioNext, exec, playerctl next"
-          "XF86AudioPrev, exec, playerctl previous"
+          ",XF86AudioPlay, exec, playerctl play-pause"
+          ",XF86AudioPause, exec, playerctl play-pause"
+          ",XF86AudioNext, exec, playerctl next"
+          ",XF86AudioPrev, exec, playerctl previous"
           "$mod SHIFT, X, exec, hyprpicker -a -n"
           "$mod, Q, killactive,"
           "$mod SHIFT, Q, exit,"
@@ -55,8 +55,8 @@ in {
           "$mod CTRL, right, resizeactive, 20 0"
           "$mod CTRL, up, resizeactive, 0 -20"
           "$mod CTRL, down, resizeactive, 0 20"
-          "UPER, g, togglegroup"
-          "UPER, tab, changegroupactive"
+          "$mod, g, togglegroup"
+          "$mod, tab, changegroupactive"
           "$mod, grave, togglespecialworkspace"
           "$modSHIFT, grave, movetoworkspace, special"
         ]
@@ -123,7 +123,7 @@ in {
         shadow_offset = "2 2";
         shadow_range = 4;
         shadow_render_power = 2;
-        col.shadow = "0x66000000";
+        "col.shadow" = "0x66000000";
         blurls = [
           "gtk-layer-shell"
           "waybar"
