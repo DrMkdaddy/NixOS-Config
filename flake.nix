@@ -18,6 +18,7 @@
     };
     yazi.url = "github:sxyazi/yazi";
     swwwitch.url = "github:drmkdaddy/swwwitch";
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   nixConfig = {
