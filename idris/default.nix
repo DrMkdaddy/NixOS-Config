@@ -5,5 +5,6 @@ _: {
     ./kernel.nix
     ./zerotier.nix
     ./greetd.nix
+    ./bluetooth.nix
   ];
 }

@@ -57,6 +57,7 @@
         modules = [
           ./idris
           ./shared/users.nix
+          ./shared/home
           h-m.nixosModules.home-manager
           {
             home-manager = {
