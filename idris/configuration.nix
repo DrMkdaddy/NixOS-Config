@@ -34,6 +34,7 @@
     programs = {
       dconf.enable = true;
       fish.enable = true;
+      ssh.startAgent = true;
     };
     services = {
       flatpak.enable = true;

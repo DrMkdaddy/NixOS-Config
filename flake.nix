@@ -66,6 +66,22 @@
           inherit inputs;
         };
       };
+    modules =
+      modules
+      ++ [
+        ({
+          self,
+          name,
+          ...
+        }: {
+          networking.hostname = name;
+          nix.registry = {
+            nixpkgs.flake = nixpkgs;
+            self.flake = self;
+          };
+          nixpkgs.config.allowUnfree = true;
+        })
+      ];
   in {
     nixosConfigurations = genAttrsMapBy (a: a.name) mkConfig systems id;
   };
