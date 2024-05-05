@@ -53,14 +53,12 @@
         name = "idris";
         modules = [
           ./idris
-          ./shared/users.nix
-          ./shared/home
           h-m.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.noor = import ./idris/home.nix;
+              users.noor = _: {imports = [./shared/home];};
               extraSpecialArgs = {inherit inputs;};
             };
           }
@@ -104,6 +102,9 @@
               nix.registry.self.flake = self;
               nixpkgs.config.allowUnfree = true;
             })
+          ]
+          ++ [
+            ./shared/users.nix
           ];
       };
   in {

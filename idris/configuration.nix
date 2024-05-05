@@ -6,7 +6,7 @@
   ...
 }: {
   time.timeZone = "America/Los_Angeles";
-  enviroment.sessionVariables = {EDITOR = "/home/noor/.nix-profile/bin/nvim";};
+  environment.sessionVariables = {EDITOR = "/home/noor/.nix-profile/bin/nvim";};
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
