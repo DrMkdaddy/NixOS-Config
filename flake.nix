@@ -1,15 +1,12 @@
 {
   description = "My nixos flake after the rewrite.";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     h-m = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    anyrun.url = "github:Kirottu/anyrun";
     hyprland.url = "github:hyprwm/Hyprland";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
@@ -44,7 +41,7 @@
   };
   outputs = {
     self,
-    nixpkgs,
+    nixpkgs-unstable,
     h-m,
     typed-systems,
     ...
@@ -78,7 +75,7 @@
       }
     ];
     mkConfig = {
-      nixpkgs,
+      nixpkgs ? nixpkgs-unstable,
       name,
       system,
       modules,
