@@ -2,7 +2,7 @@
   description = "My nixos flake after the rewrite.";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
+    h-m = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -45,7 +45,7 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
+    h-m,
     typed-systems,
     ...
   } @ inputs: let
@@ -54,13 +54,25 @@
       {
         #Idris is the name of my Laptop
         name = "idris";
-        nixos-modules = [./idris];
+        modules = [
+          ./idris
+          ./shared/users.nix
+          h-m.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.noor = import ./idris/home.nix;
+              extraSpecialArgs = {inherit inputs;};
+            };
+          }
+        ];
         system = systems'.x86_64-linux;
       }
       {
         #Nasr is the name of my Desktop hopefully.
         name = "nasr";
-        nixos-modules = [];
+        modules = [];
         system = systems'.x86_64-linux;
       }
     ];
@@ -68,8 +80,7 @@
       nixpkgs,
       name,
       system,
-      nixos-modules,
-      home-modules,
+      modules,
     }: let
       pkgs = import nixpkgs {
         inherit system;
@@ -83,7 +94,7 @@
           inherit inputs;
         };
         modules =
-          nixos-modules
+          modules
           ++ [
             ({
               self,
@@ -91,19 +102,13 @@
               ...
             }: {
               networking.hostname = name;
-              nix.registry = {
-                nixpkgs.flake = nixpkgs;
-                self.flake = self;
-              };
+              nix.registry.nixpkgs.flake = nixpkgs;
+              nix.registry.self.flake = self;
               nixpkgs.config.allowUnfree = true;
             })
           ];
       };
-    noor@${name} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-    };
   in {
     nixosConfigurations = genAttrsMapBy (a: a.name) mkConfig systems id;
-    homeConfigurations = genAttrsMapBy (a: a.name) mkConfig systems id;
   };
 }
