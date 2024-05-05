@@ -29,26 +29,20 @@
 
   outputs = {
     nixpkgs,
-    anyrun,
-    hyprland,
-    spicetify-nix,
-    xdph,
-    neovim-flake,
-    hyprpicker,
-    hyprland-plugins,
-    yazi,
-    swwwitch,
+    home-manager,
     typed-systems,
     ...
   } @ inputs: let
     inherit (import typed-systems) genAttrsMapBy systems' id;
     systems = [
       {
+        #Idris is the name of my Laptop
         name = "idris";
         modules = [./idris];
         system = systems'.x86_64-linux;
       }
       {
+        #Nasr is the name of my Desktop hopefully.
         name = "nasr";
         modules = [];
         system = systems'.x86_64-linux;

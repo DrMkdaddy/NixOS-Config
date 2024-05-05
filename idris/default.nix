@@ -1,3 +1,6 @@
 _: {
-  imports = [./idris-hardware.nix];
+  imports = [
+    ./idris-hardware.nix
+    ./configuration.nix
+  ];
 }
