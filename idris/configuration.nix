@@ -15,47 +15,43 @@
       vaapiVdpau
       libvdpau-va-gl
     ];
-    xdg.portal = {
+  };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland];
+    config.common.default = "*";
+  };
+  nix = {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      auto-optimise-store = true;
+      trusted-users = ["root" "@wheel"];
+    };
+  };
+  programs = {
+    dconf.enable = true;
+    fish.enable = true;
+    ssh.startAgent = true;
+  };
+  services = {
+    flatpak.enable = true;
+    thermald.enable = true;
+    pipewire = {
       enable = true;
-      wlr.enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk inputs.xdph.packages.${pkgs.system}];
-      config.common.default = "*";
-    };
-    nix = {
-      registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
-      nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-
-      settings = {
-        experimental-features = ["nix-command" "flakes"];
-        auto-optimise-store = true;
-        trusted-users = ["root" "@wheel"];
-      };
-    };
-    programs = {
-      dconf.enable = true;
-      fish.enable = true;
-      ssh.startAgent = true;
-    };
-    services = {
-      flatpak.enable = true;
-      system76-scheduler.settings.cfsProfiles.enable = true;
-      thermald.enable = true;
-      pipewire = {
+      wireplumber.enable = true;
+      pulse.enable = true;
+      jack.enable = true;
+      alsa = {
         enable = true;
-        wireplumber.enable = true;
-        pulse.enable = true;
-        jack.enable = true;
-        alsa = {
-          enable = true;
-          support32Bit = true;
-        };
+        support32Bit = true;
       };
-      tlp = {enable = true;};
     };
-    virtualisation.podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
+    tlp.enable = true;
+  };
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
 }

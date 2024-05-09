@@ -7,7 +7,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     anyrun.url = "github:Kirottu/anyrun";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     neovim-flake.url = "github:notashelf/neovim-flake";
@@ -92,14 +92,9 @@
         modules =
           modules
           ++ [
-            ({
-              self,
-              name,
-              ...
-            }: {
-              networking.hostname = name;
+            (_: {
+              networking.hostName = name;
               nix.registry.nixpkgs.flake = nixpkgs;
-              nix.registry.self.flake = self;
               nixpkgs.config.allowUnfree = true;
             })
           ]
