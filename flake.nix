@@ -6,7 +6,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    anyrun.url = "github:Kirottu/anyrun";
+    anyrun.url = "github:anyrun-org/anyrun";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
@@ -52,7 +52,7 @@
         #Idris is the name of my Laptop
         name = "idris";
         modules = [
-          ./idris
+          ./idris/default.nix
           h-m.nixosModules.home-manager
           {
             home-manager = {
@@ -62,6 +62,7 @@
               extraSpecialArgs = {inherit inputs;};
             };
           }
+          ./shared/nh.nix
         ];
         system = systems'.x86_64-linux;
       }

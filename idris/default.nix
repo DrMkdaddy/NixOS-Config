@@ -1,10 +1,11 @@
 {pkgs, ...}: {
   imports = [
+    ./kernel.nix
     ./idris-hardware.nix
     ./configuration.nix
-    ./kernel.nix
     ./zerotier.nix
     ./bluetooth.nix
+    ./greetd.nix
   ];
   environment.systemPackages = [
     pkgs.valgrind

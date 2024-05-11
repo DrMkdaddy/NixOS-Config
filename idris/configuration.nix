@@ -5,8 +5,9 @@
   pkgs,
   ...
 }: {
+  networking.networkmanager.enable = true;
   time.timeZone = "America/Los_Angeles";
-  environment.sessionVariables = {EDITOR = "/home/noor/.nix-profile/bin/nvim";};
+  environment.sessionVariables = {EDITOR = "nvim";};
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -23,6 +24,8 @@
     config.common.default = "*";
   };
   nix = {
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
     settings = {
       experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
@@ -57,7 +60,7 @@
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efiSysMountPoint = "/boot";
     };
     grub = {
       enable = true;
