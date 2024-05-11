@@ -96,6 +96,7 @@
               networking.hostName = name;
               nix.registry.nixpkgs.flake = nixpkgs;
               nixpkgs.config.allowUnfree = true;
+              system.stateVersion = "24.05";
             })
           ]
           ++ [
