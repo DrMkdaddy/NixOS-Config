@@ -60,7 +60,11 @@
       {
         #Nasr is the name of my Desktop hopefully.
         name = "nasr";
-        modules = [];
+        modules = [
+          ./shared/configuration.nix
+          ./nasr
+          ./shared/nh.nix
+        ];
         system = systems'.x86_64-linux;
       }
     ];
@@ -100,7 +104,12 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.noor = _: {imports = [./shared/home ./${name}/home];};
-                extraSpecialArgs = {inherit inputs;};
+                extraSpecialArgs = {
+                  inherit inputs;
+                  host = name;
+                };
+
+                backupFileExtension = "backup";
               };
             }
           ];

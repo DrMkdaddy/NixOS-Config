@@ -3,7 +3,6 @@
     ./kernel.nix
     ./idris-hardware.nix
     ./configuration.nix
-    ./zerotier.nix
     ./bluetooth.nix
     ./greetd.nix
   ];
