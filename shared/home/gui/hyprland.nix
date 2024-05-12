@@ -8,6 +8,7 @@
     ${pkgs.swww}/bin/swww init &
     ${pkgs.dunst}/bin/dunst &
     ${pkgs.wl-clipboard}/bin/wl-clipboard-history -t &
+    ${pkgs.swayosd}/bin/swayosd-server &
     systemctl --user import-eviroment WAYLAND_DISPLAY &
   '';
 in {

@@ -10,5 +10,6 @@
   environment.systemPackages = [
     pkgs.valgrind
     pkgs.gdb
+    pkgs.swayosd
   ];
 }
