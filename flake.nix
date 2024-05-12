@@ -53,15 +53,6 @@
         name = "idris";
         modules = [
           ./idris/default.nix
-          h-m.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.noor = _: {imports = [./shared/home];};
-              extraSpecialArgs = {inherit inputs;};
-            };
-          }
           ./shared/nh.nix
         ];
         system = systems'.x86_64-linux;
@@ -89,6 +80,7 @@
         specialArgs = {
           inherit nixpkgs;
           inherit inputs;
+          host = name;
         };
         modules =
           modules
@@ -102,6 +94,15 @@
           ]
           ++ [
             ./shared/users.nix
+            h-m.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.noor = _: {imports = [./shared/home ./${name}/home];};
+                extraSpecialArgs = {inherit inputs;};
+              };
+            }
           ];
       };
   in {
