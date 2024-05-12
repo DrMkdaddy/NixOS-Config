@@ -44,6 +44,12 @@
   };
   boot.initrd.kernelModules = ["nvidia"];
   environment = {
+    systemPackages = with pkgs; [
+      dive # look into docker image layers
+      podman-tui # status of containers in the terminal
+      docker-compose # start group of containers for dev
+      #podman-compose # start group of containers for dev
+    ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
