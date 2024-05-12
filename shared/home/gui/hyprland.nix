@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  host,
   ...
 }: let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
@@ -86,10 +87,13 @@ in {
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
-      monitor = [
-        "DP-3,preferred,1920x0,1"
-        "HDMI-A-1,preferred,0x180,1"
-      ];
+      monitor =
+        if (host == "nasr")
+        then ["DP-3,preferred "]
+        else [
+          "DP-3,preferred,1920x0,1"
+          "HDMI-A-1,preferred,0x180,1"
+        ];
       workspace = "DP-3,1";
       input = {
         kb_layout = "us";
