@@ -55,6 +55,7 @@
           ./idris/default.nix
           ./shared/nh.nix
           ./shared/hyprland.nix
+          ./shared/zerotier.nix
         ];
         system = systems'.x86_64-linux;
       }
@@ -67,6 +68,8 @@
           ./shared/nh.nix
           ./shared/hyprland.nix
           ./shared/steam.nix
+          ./shared/greetd.nix
+          ./shared/zerotier.nix
         ];
         system = systems'.x86_64-linux;
       }
