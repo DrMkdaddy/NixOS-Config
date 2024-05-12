@@ -19,7 +19,6 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     systemd.variables = ["--all"];
     settings = {
       "$mod" = "SUPER";
@@ -90,7 +89,7 @@ in {
       ];
       monitor =
         if (host == "nasr")
-        then ["DP-3,preferred,2560x0,1"]
+        then ["DP-1,preferred,2560x1440@164.96Hz,1" "Unknown-1,disable"]
         else [
           "DP-3,preferred,1920x0,1"
           "HDMI-A-1,preferred,0x180,1"

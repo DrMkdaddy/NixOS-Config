@@ -54,6 +54,7 @@
         modules = [
           ./idris/default.nix
           ./shared/nh.nix
+          ./shared/hyprland.nix
         ];
         system = systems'.x86_64-linux;
       }
@@ -64,6 +65,8 @@
           ./shared/configuration.nix
           ./nasr
           ./shared/nh.nix
+          ./shared/hyprland.nix
+          ./shared/steam.nix
         ];
         system = systems'.x86_64-linux;
       }
