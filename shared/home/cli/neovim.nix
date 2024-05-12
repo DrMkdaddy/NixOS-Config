@@ -98,13 +98,13 @@
         };
         colorizer = {
           enable = true;
-          options = {
+          setupOpts.user_default_options = {
             css = true;
           };
         };
         smartcolumn = {
           enable = true;
-          columnAt.languages = {
+          setupOpts.custom_colorcolumn = {
             nix = 100;
             python = 120;
             lua = 100;
@@ -116,7 +116,7 @@
 
       terminal.toggleterm = {
         enable = true;
-        enable_winbar = true;
+        setupOpts.enable_winbar = true;
         lazygit.enable = true;
         mappings = {
           open = "<leader>m";

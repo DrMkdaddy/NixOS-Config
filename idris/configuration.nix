@@ -38,7 +38,7 @@
     ssh.startAgent = true;
   };
   services = {
-    xserver.libinput.enable = true;
+    libinput.enable = true;
     flatpak.enable = true;
     thermald.enable = true;
     pipewire = {
