@@ -38,6 +38,12 @@
     sonarr = jellyfin;
     bazarr = jellyfin;
     jellyseerr = jellyfin;
-    qbittorrent = lib.mkMerge [jellyfin {group = "media";}];
+    qbittorrent = lib.mkMerge [
+      jellyfin
+      {
+        group = "media";
+        dataDir = "/mnt/nuclearmissilesilo/qbittorrent_dls";
+      }
+    ];
   };
 }
