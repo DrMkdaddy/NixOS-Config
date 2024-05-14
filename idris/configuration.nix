@@ -38,6 +38,7 @@
     ssh.startAgent = true;
   };
   services = {
+    tailscale.enable = true;
     libinput.enable = true;
     flatpak.enable = true;
     thermald.enable = true;
