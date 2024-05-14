@@ -43,6 +43,7 @@
       {
         group = "media";
         dataDir = "/mnt/nuclearmissilesilo/qbittorrent_dls";
+        port = 5080;
       }
     ];
   };

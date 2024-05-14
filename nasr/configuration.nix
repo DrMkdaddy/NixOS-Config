@@ -59,4 +59,12 @@
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
   };
+  services.openssh = {
+    enable = true;
+    ports = [2222];
+    settings = {
+      KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
+    };
+  };
 }
