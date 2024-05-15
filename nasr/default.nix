@@ -3,5 +3,6 @@ _: {
     ./configuration.nix
     ./nasr_hardware.nix
     ./media-stack.nix
+    ./resolvd.nix
   ];
 }
