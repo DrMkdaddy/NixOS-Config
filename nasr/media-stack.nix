@@ -26,6 +26,7 @@
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    jellyfin-media-player
   ];
 
   services = rec {
