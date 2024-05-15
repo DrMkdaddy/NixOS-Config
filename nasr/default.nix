@@ -4,5 +4,6 @@ _: {
     ./nasr_hardware.nix
     ./media-stack.nix
     ./resolvd.nix
+    ./caddy.nix
   ];
 }
