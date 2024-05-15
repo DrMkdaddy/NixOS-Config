@@ -10,5 +10,6 @@
     pkgs.valgrind
     pkgs.gdb
     pkgs.swayosd
+    pkgs.jellyfin-media-player
   ];
 }
