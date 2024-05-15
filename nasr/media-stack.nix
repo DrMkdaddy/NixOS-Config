@@ -47,6 +47,6 @@
         port = 5080;
       }
     ];
-    mullvad.enable = true;
+    mullvad-vpn.enable = true;
   };
 }
