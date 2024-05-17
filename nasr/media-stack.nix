@@ -13,10 +13,10 @@
     members = [
       "jellyfin"
       "qbittorrent"
-      "sonarr"
       "radarr"
-      "prowlarr"
       "bazarr"
+      "sonarr"
+      "prowlarr"
       "jellyseerr"
     ];
     gid = 1666;
@@ -36,8 +36,8 @@
     };
     radarr = jellyfin;
     prowlarr = jellyfin;
-    sonarr = jellyfin;
-    bazarr = jellyfin;
+    sonarr = radarr;
+    bazarr = radarr;
     jellyseerr = jellyfin;
     qbittorrent = lib.mkMerge [
       jellyfin
@@ -47,6 +47,5 @@
         port = 5080;
       }
     ];
-    mullvad-vpn.enable = true;
   };
 }
