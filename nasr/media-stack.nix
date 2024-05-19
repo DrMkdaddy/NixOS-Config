@@ -23,11 +23,19 @@
   };
   users.groups.media = {};
   environment.systemPackages = with pkgs; [
-    jellyfin
     jellyfin-web
     jellyfin-ffmpeg
     jellyfin-media-player
   ];
+
+  networking.firewall.allowedTCPPorts = [5690];
+  virtualisation.oci-containers.backend = "podman";
+  virtualisation.oci-containers.containers."wizarr" = {
+    autoStart = true;
+    image = "ghcr.io/wizarrrr/wizarr:latest";
+    ports = ["5690:5690"];
+    volumes = ["/home/noor/wizarr:/data/database"];
+  };
 
   services = rec {
     jellyfin = {
