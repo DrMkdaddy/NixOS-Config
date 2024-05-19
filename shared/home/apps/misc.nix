@@ -8,6 +8,5 @@
     mpv
     chromium
     nicotine-plus
-    vesktop
   ];
 }
