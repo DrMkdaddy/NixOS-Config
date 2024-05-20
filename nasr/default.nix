@@ -5,5 +5,6 @@ _: {
     ./media-stack.nix
     ./resolvd.nix
     ./caddy.nix
+    ./lodestone.nix
   ];
 }
