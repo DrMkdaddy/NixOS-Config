@@ -1,6 +1,6 @@
 _: {
   virtualisation.oci-containers.containers.tdarr1 = {
-    autoStart = true;
+    autoStart = false;
     image = "ghcr.io/haveagitgat/tdarr";
     volumes = [
       "/home/noor/docker/tdarr/server:/app/server"
