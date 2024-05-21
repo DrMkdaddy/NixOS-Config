@@ -1,5 +1,5 @@
 _: {
-  virtualisation.oci-containers.containers.tdarr = {
+  virtualisation.oci-containers.containers.tdarr1 = {
     autoStart = true;
     image = "ghcr.io/haveagitgat/tdarr";
     volumes = [
@@ -24,10 +24,9 @@ _: {
     ports = ["8265:8265" "8266:8266"];
     extraOptions = [
       "-ti"
-      "-gpus=all"
+      "--gpus=all"
       "--device=/dev/dri:/dev/dri"
-      "--log-opt max-size=10m"
-      "--log-opt max-file=5"
     ];
   };
+  networking.firewall.allowedTCPPorts = [8265 8266];
 }
