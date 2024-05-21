@@ -1,5 +1,5 @@
 _: {
-  virtualisation.oci-containers.containers = {
+  virtualisation.oci-containers.containers.lodestone = {
     image = "ghcr.io/lodestone-team/lodestone_core";
     autoStart = true;
     ports = [
