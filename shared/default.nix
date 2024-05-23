@@ -5,5 +5,6 @@ _: {
     ./nh.nix
     ./steam.nix
     ./users.nix
+    ./resolvd.nix
   ];
 }
