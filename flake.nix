@@ -54,6 +54,10 @@
     sharedModules = [
       ./shared
       ./global/configuration.nix
+      ./specific/nh.nix
+      ./specific/steam.nix
+      ./specific/resolvd.nix
+      ./specific/hyprland.nix
     ];
 
     hostModules = {
