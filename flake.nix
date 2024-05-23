@@ -1,5 +1,6 @@
 {
-  description = "My nixos flake after the rewrite.";
+  description = "My NixOS flake with support for multiple architectures";
+
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     h-m = {
@@ -23,6 +24,7 @@
       flake = false;
     };
   };
+
   nixConfig = {
     extra-substituters = [
       "https://hyprland.cachix.org"
@@ -39,6 +41,7 @@
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
     ];
   };
+
   outputs = {
     self,
     nixpkgs-unstable,
@@ -47,54 +50,52 @@
     ...
   } @ inputs: let
     inherit (import typed-systems) genAttrsMapBy systems' id;
+
+    sharedModules = [
+      ./shared
+    ];
+
+    hostModules = {
+      idris = [./idris];
+      nasr = [./nasr];
+    };
     systems = [
       {
-        #Idris is the name of my Laptop
         name = "idris";
-        modules = [
-          ./idris/default.nix
-          ./shared/nh.nix
-          ./shared/hyprland.nix
-          ./shared/zerotier.nix
-        ];
+        extraModules = hostModules.idris;
+        arch = systems'.x86_64-linux;
       }
       {
-        #Nasr is the name of my Desktop hopefully.
         name = "nasr";
-        modules = [
-          ./shared/configuration.nix
-          ./nasr
-          ./shared/nh.nix
-          ./shared/hyprland.nix
-          ./shared/steam.nix
-          ./shared/greetd.nix
-          ./shared/zerotier.nix
-        ];
+        extraModules = hostModules.nasr;
+        arch = systems'.x86_64-linux;
       }
+      # Add more systems with different architectures here
     ];
-    mkConfig = {
-      nixpkgs ? nixpkgs-unstable,
+
+    createSystem = {
       name,
-      system ? systems'.x86_64-linux,
-      modules,
+      extraModules ? [],
+      system,
     }: let
-      pkgs = import nixpkgs {
+      pkgs = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
     in
-      nixpkgs.lib.nixosSystem {
+      nixpkgs-unstable.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs nixpkgs;
+          inherit inputs nixpkgs-unstable;
           host = name;
         };
         modules =
-          modules
+          extraModules
+          ++ sharedModules
           ++ [
             (_: {
               networking.hostName = name;
-              nix.registry.nixpkgs.flake = nixpkgs;
+              nix.registry.nixpkgs.flake = nixpkgs-unstable;
               nixpkgs.config.allowUnfree = true;
               system.stateVersion = "24.05";
             })
@@ -115,6 +116,13 @@
           ];
       };
   in {
-    nixosConfigurations = genAttrsMapBy (a: a.name) mkConfig systems id;
+    nixosConfigurations =
+      genAttrsMapBy (a: a.name) (a:
+        createSystem {
+          inherit (a) name extraModules;
+          system = a.arch;
+        })
+      systems
+      id;
   };
 }

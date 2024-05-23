@@ -4,7 +4,6 @@
     ./idris-hardware.nix
     ./configuration.nix
     ./bluetooth.nix
-    ./greetd.nix
   ];
   environment.systemPackages = [
     pkgs.valgrind
