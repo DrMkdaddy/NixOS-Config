@@ -1,15 +1,26 @@
 {pkgs, ...}: {
   home.packages = with pkgs; let
-    # TODO: ADD SCRIPTS TO HANDLE VIDEO IN DIRECTORIES WITH MPV
-    # TODO: MAKE THAT BOOKMARK HANDLER
-    # TODO: RIP MORE STUFF OFF (WHY WRITE IT YOURSELF!!!!!!)
-    emoji = pkgs.writeShellScriptBin "emoji" builtins.readFile ./emoji.sh;
-    zipmenu = pkgs.writeShellScriptBin "zipmenu" builtins.readFile ./zipmenu.sh;
-    rgmenu = pkgs.writeShellScriptBin "rgmenu" builtins.readFile ./rgmenu.sh;
-    sshmenu = pkgs.writeShellScriptBin "sshmenu" builtins.readFile ./sshmenu.sh;
+    # Utility function to create shell scripts
+    mkScript = name: content: pkgs.writeShellScriptBin name content;
+
+    emoji = mkScript "emoji" ''
+      #!/bin/sh
+      chosen=$(cut -d ';' -f1 ${./emoji} | tofi | sed "s/ .*//")
+      [ -z "$chosen" ] && exit
+      if [ -n "$1" ]; then
+          wtype "$chosen"
+      else
+          printf "$chosen" | wl-copy
+          notify-send "'$chosen' copied to clipboard." &
+      fi
+    '';
+
+    zipmenu = mkScript "zipmenu" (builtins.readFile ./zipmenu.sh);
+    rgmenu = mkScript "rgmenu" (builtins.readFile ./rgmenu.sh);
+    sshmenu = mkScript "sshmenu" (builtins.readFile ./sshmenu.sh);
   in [
-    # for compatibility sake
-    (writeScriptBin "dmenu" ''exec ${lib.getExe tofi}'')
+    # For compatibility sake
+    (mkScript "dmenu" ''exec ${pkgs.tofi}'')
     tofi
     emoji
     wtype
@@ -17,6 +28,11 @@
     rgmenu
     sshmenu
   ];
+
+  # TODO: ADD SCRIPTS TO HANDLE VIDEO IN DIRECTORIES WITH MPV
+  # TODO: MAKE THAT BOOKMARK HANDLER
+  # TODO: RIP MORE STUFF OFF (WHY WRITE IT YOURSELF!!!!!!)
+
   xdg.configFile."tofi/config".text = ''
     font = FiraCode Nerd Font
     font-size = 11
