@@ -4,7 +4,7 @@
     mkScript = name: content: pkgs.writeShellScriptBin name content;
 
     emoji = mkScript "emoji" ''
-      #!/bin/sh
+      #!/bin/env bash
       chosen=$(cut -d ';' -f1 ${./emoji} | tofi | sed "s/ .*//")
       [ -z "$chosen" ] && exit
       if [ -n "$1" ]; then
@@ -49,7 +49,7 @@
     padding-left = 0
     padding-right = 0
     margin-top = 0
-    margin-bottom = 3
+    margin-bottom = 0
     margin-left = 15
     margin-right = 0
     prompt-text = "-> "

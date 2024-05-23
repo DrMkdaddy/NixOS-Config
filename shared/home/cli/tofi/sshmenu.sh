@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 
 # List the files in /home/noor/.ssh/, excluding the specified patterns, and pass the result to tofi
 selected_key=$(
