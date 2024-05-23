@@ -58,6 +58,7 @@
       ./specific/steam.nix
       ./specific/resolvd.nix
       ./specific/hyprland.nix
+      ./shared/greetd.nix
     ];
 
     hostModules = {

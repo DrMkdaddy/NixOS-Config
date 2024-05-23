@@ -5,7 +5,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "${tuigreet} --time --remember --cmd bash";
+        command = "${tuigreet} --time --remember --cmd Hyprland";
         user = "greeter";
       };
     };
