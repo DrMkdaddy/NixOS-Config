@@ -57,7 +57,6 @@
           ./shared/hyprland.nix
           ./shared/zerotier.nix
         ];
-        system = systems'.x86_64-linux;
       }
       {
         #Nasr is the name of my Desktop hopefully.
@@ -71,13 +70,12 @@
           ./shared/greetd.nix
           ./shared/zerotier.nix
         ];
-        system = systems'.x86_64-linux;
       }
     ];
     mkConfig = {
       nixpkgs ? nixpkgs-unstable,
       name,
-      system,
+      system ? systems'.x86_64-linux,
       modules,
     }: let
       pkgs = import nixpkgs {
@@ -88,8 +86,7 @@
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit nixpkgs;
-          inherit inputs;
+          inherit inputs nixpkgs;
           host = name;
         };
         modules =
@@ -101,8 +98,6 @@
               nixpkgs.config.allowUnfree = true;
               system.stateVersion = "24.05";
             })
-          ]
-          ++ [
             ./shared/users.nix
             h-m.nixosModules.home-manager
             {
@@ -114,7 +109,6 @@
                   inherit inputs;
                   host = name;
                 };
-
                 backupFileExtension = "backup";
               };
             }
