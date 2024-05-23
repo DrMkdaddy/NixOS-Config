@@ -22,6 +22,14 @@
       #!/bin/sh
       $EDITOR $(rg ''$1 | cut -f1 -d ":" | tofi)
     '';
+    sshmenu = pkgs.writeShellScriptBin "sshmenu" ''
+      #!/bin/sh
+      for file in /home/noor/.ssh/*; do
+        if [[ ! "$file" =~ \.pub$ && "$file" != /home/noor/.ssh/authorized_keys && "$file" != /home/noor/.ssh/known_hosts ]]; then
+          echo "$file"
+        fi
+      done | tofi
+    '';
   in [
     # for compatibility sake
     (writeScriptBin "dmenu" ''exec ${lib.getExe tofi}'')
@@ -30,6 +38,7 @@
     wtype
     zipmenu
     rgmenu
+    sshmenu
   ];
   xdg.configFile."tofi/config".text = ''
     font = FiraCode Nerd Font
@@ -47,7 +56,7 @@
     padding-left = 0
     padding-right = 0
     margin-top = 0
-    margin-bottom = 0
+    margin-bottom = 3
     margin-left = 15
     margin-right = 0
     prompt-text = "-> "
