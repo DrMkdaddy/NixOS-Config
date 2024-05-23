@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./configuration.nix
-    ./nasr_hardware.nix
+    ./nasr-hardware.nix
     ./media-stack.nix
     ./caddy.nix
     ./lodestone.nix

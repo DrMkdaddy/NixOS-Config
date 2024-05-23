@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./kernel.nix
     ./idris-hardware.nix
     ./configuration.nix
     ./bluetooth.nix
