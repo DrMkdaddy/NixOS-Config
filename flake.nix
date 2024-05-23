@@ -53,6 +53,7 @@
 
     sharedModules = [
       ./shared
+      ./global/configuration.nix
     ];
 
     hostModules = {
@@ -99,7 +100,7 @@
               nixpkgs.config.allowUnfree = true;
               system.stateVersion = "24.05";
             })
-            ./shared/users.nix
+            ./global/users.nix
             h-m.nixosModules.home-manager
             {
               home-manager = {
@@ -126,3 +127,4 @@
       id;
   };
 }
+
