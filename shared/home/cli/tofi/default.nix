@@ -3,33 +3,10 @@
     # TODO: ADD SCRIPTS TO HANDLE VIDEO IN DIRECTORIES WITH MPV
     # TODO: MAKE THAT BOOKMARK HANDLER
     # TODO: RIP MORE STUFF OFF (WHY WRITE IT YOURSELF!!!!!!)
-    emoji = pkgs.writeShellScriptBin "emoji" ''
-      #!/bin/sh
-      chosen=$(cut -d ';' -f1 ${./emoji} | tofi | sed "s/ .*//")
-      [ -z "$chosen" ] && exit
-      if [ -n "$1" ]; then
-      	wtype "$chosen"
-      else
-      	printf "$chosen" | wl-copy
-      	notify-send "'$chosen' copied to clipboard." &
-      fi
-    '';
-    zipmenu = pkgs.writeShellScriptBin "zipmenu" ''
-      #!/bin/sh
-      unzip $(eza -1 *.zip | tofi)
-    '';
-    rgmenu = pkgs.writeShellScriptBin "rgmenu" ''
-      #!/bin/sh
-      $EDITOR $(rg ''$1 | cut -f1 -d ":" | tofi)
-    '';
-    sshmenu = pkgs.writeShellScriptBin "sshmenu" ''
-      #!/bin/sh
-      for file in /home/noor/.ssh/*; do
-        if [[ ! "$file" =~ \.pub$ && "$file" != /home/noor/.ssh/authorized_keys && "$file" != /home/noor/.ssh/known_hosts ]]; then
-          echo "$file"
-        fi
-      done | tofi
-    '';
+    emoji = pkgs.writeShellScriptBin "emoji" builtins.readFile ./emoji.sh;
+    zipmenu = pkgs.writeShellScriptBin "zipmenu" builtins.readFile ./zipmenu.sh;
+    rgmenu = pkgs.writeShellScriptBin "rgmenu" builtins.readFile ./rgmenu.sh;
+    sshmenu = pkgs.writeShellScriptBin "sshmenu" builtins.readFile ./sshmenu.sh;
   in [
     # for compatibility sake
     (writeScriptBin "dmenu" ''exec ${lib.getExe tofi}'')
