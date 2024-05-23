@@ -29,6 +29,6 @@ this.
 
 ### Credits
 
- @NotAShelf- For letting me bother him when I started. 
+ @NotAShelf - For letting me bother him when I started. 
 
 ... and everyone else.
