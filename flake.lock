@@ -238,11 +238,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1716417827,
-        "narHash": "sha256-TYHpA/i9+Ns01+RzknJ5eYskQXL9GTTA7JX9Lo4JKVg=",
+        "lastModified": 1716491954,
+        "narHash": "sha256-Qf1mEPacXhhM5KFm7HG2F/UBfzkjSBK57gKquA5TAVY=",
         "ref": "refs/heads/main",
-        "rev": "7ad9116de8d0b7dac27eaf080bd92998a8fb40e5",
-        "revCount": 4728,
+        "rev": "4e42107d25dc47ee94da282db233f85f1e4c6bd0",
+        "revCount": 4733,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -550,11 +550,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1716427932,
-        "narHash": "sha256-l4iG5Bh44z5XaIMFA3CVrmCfWesJ/txpOidSn6zCGvo=",
+        "lastModified": 1716474647,
+        "narHash": "sha256-z0OGKiX1T80SNAeFI5FW90wryVygBndShEx/Iu51MBg=",
         "owner": "notashelf",
         "repo": "neovim-flake",
-        "rev": "1061c920beb46ea441624a5c9665a866a9a33228",
+        "rev": "5748bb5eb90c7f455e3757aa767c85a22e48ca1f",
         "type": "github"
       },
       "original": {
