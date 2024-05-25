@@ -46,5 +46,5 @@
     };
   };
 
-  virtualisation.containers.cdi.dynamic.nvidia.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 }
