@@ -59,6 +59,7 @@
       ./specific/resolvd.nix
       ./specific/hyprland.nix
       ./shared/greetd.nix
+      ./specific/btrfs.nix
     ];
 
     hostModules = {
