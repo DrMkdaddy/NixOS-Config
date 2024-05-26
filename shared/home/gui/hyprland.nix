@@ -104,7 +104,7 @@ in {
         sensitivity = 0;
       };
       general = {
-        gaps_in = 5;
+        gaps_in = 3;
         gaps_out = 2;
         border_size = 2;
         no_border_on_floating = true;
@@ -120,7 +120,7 @@ in {
         swallow_regex = ["^(kitty)$" "^(zellij)$"];
       };
       decoration = {
-        rounding = 8;
+        rounding = 5;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         blur = {
@@ -134,6 +134,7 @@ in {
         shadow_range = 4;
         shadow_render_power = 2;
         "col.shadow" = "0x66000000";
+        "col.shadow_inactive" = "0x00000000";
         blurls = [
           "gtk-layer-shell"
           "waybar"
