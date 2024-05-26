@@ -67,6 +67,7 @@
       ./shared/greetd.nix
       ./specific/btrfs.nix
       ./global/users.nix
+      ./specific/printing.nix
       nixStuff
     ];
 
