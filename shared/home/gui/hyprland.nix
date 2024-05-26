@@ -14,7 +14,6 @@
   '';
 in {
   imports = [
-    inputs.hyprland.homeManagerModules.default
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -91,7 +90,7 @@ in {
       monitor =
         if (host == "nasr")
         then [
-          "DP-1,2560x1440@164.96Hz,0x0,1"
+          "DP-1,256x1440@164.96Hz,0x0,1"
           "Unknown-1,disable"
         ]
         else [
@@ -106,10 +105,12 @@ in {
       };
       general = {
         gaps_in = 5;
-        gaps_out = 5;
-        border_size = 0;
+        gaps_out = 2;
+        border_size = 2;
         no_border_on_floating = true;
         layout = "dwindle";
+        "col.active_border" = "rgba(ff00f5ee) rgba(00d4ffee)";
+        "col.inactive_border" = "0x00000000";
       };
       misc = {
         disable_hyprland_logo = true;
@@ -137,6 +138,7 @@ in {
           "gtk-layer-shell"
           "waybar"
           "lockscreen"
+          "chromium"
         ];
       };
       animations = {

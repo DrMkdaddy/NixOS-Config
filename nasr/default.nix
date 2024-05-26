@@ -5,5 +5,6 @@ _: {
     ./media-stack.nix
     ./caddy.nix
     ./lodestone.nix
+    ./keyboard.nix
   ];
 }
