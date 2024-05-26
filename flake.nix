@@ -2,10 +2,10 @@
   description = "My NixOS flake with support for multiple architectures";
 
   inputs = {
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     h-m = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     anyrun.url = "github:anyrun-org/anyrun";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -44,12 +44,18 @@
 
   outputs = {
     self,
-    nixpkgs-unstable,
+    nixpkgs,
     h-m,
     typed-systems,
     ...
   } @ inputs: let
     inherit (import typed-systems) genAttrsMapBy systems' id;
+
+    nixStuff = _: {
+      nix.registry.nixpkgs.flake = nixpkgs;
+      nixpkgs.config.allowUnfree = true;
+      system.stateVersion = "24.05";
+    };
 
     sharedModules = [
       ./shared
@@ -60,6 +66,8 @@
       ./specific/hyprland.nix
       ./shared/greetd.nix
       ./specific/btrfs.nix
+      ./global/users.nix
+      nixStuff
     ];
 
     hostModules = {
@@ -82,31 +90,25 @@
 
     createSystem = {
       name,
-      extraModules ? [],
+      extraModules,
       system,
     }: let
-      pkgs = import nixpkgs-unstable {
+      pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
     in
-      nixpkgs-unstable.lib.nixosSystem {
+      nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs nixpkgs-unstable;
+          inherit inputs nixpkgs;
           host = name;
         };
         modules =
           extraModules
           ++ sharedModules
           ++ [
-            (_: {
-              networking.hostName = name;
-              nix.registry.nixpkgs.flake = nixpkgs-unstable;
-              nixpkgs.config.allowUnfree = true;
-              system.stateVersion = "24.05";
-            })
-            ./global/users.nix
+            (_: {networking.hostName = name;})
             h-m.nixosModules.home-manager
             {
               home-manager = {
