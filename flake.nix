@@ -68,6 +68,7 @@
       ./specific/btrfs.nix
       ./global/users.nix
       ./specific/printing.nix
+      ./global/avahi.nix
       nixStuff
     ];
 
