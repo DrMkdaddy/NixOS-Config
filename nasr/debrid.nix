@@ -1,5 +1,5 @@
 _: {
-  virtualisation.oci-containers."real-debrid" = {
+  virtualisation.oci-containers.containers."real-debrid" = {
     autoStart = true;
     image = "docker.io/rogerfar/rdtclient:latest";
     ports = ["6500:6500"];

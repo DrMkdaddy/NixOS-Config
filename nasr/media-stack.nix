@@ -26,6 +26,8 @@
     jellyfin-web
     jellyfin-ffmpeg
     jellyfin-media-player
+    jdupes
+    ncdu
   ];
 
   networking.firewall.allowedTCPPorts = [5690];
