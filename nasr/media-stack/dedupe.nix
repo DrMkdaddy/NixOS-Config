@@ -4,8 +4,7 @@
   ...
 }: let
   dedupe = ''
-    ${lib.getExe pkgs.jdupes} -rLX onlyext:mp4,mkv,avi "/mnt/nuclearmissilesilo/jellyfish/media" "/mnt/nuclearmissilesilo/jellyfish/debrid"
-    ${lib.getExe pkgs.jdupes} -rLX onlyext:mp4,mkv,avi "/mnt/nuclearmissilesilo/jellyfish/media" "/mnt/nuclearmissilesilo/jellyfish/torrents"
+    ${lib.getExe pkgs.jdupes} -rLX onlyext:mp4,mkv,avi "/mnt/nuclearmissilesilo/jellyfish/" "/mnt/nuclearmissilesilo/jellyfish/media"
   '';
 in {
   systemd = {
