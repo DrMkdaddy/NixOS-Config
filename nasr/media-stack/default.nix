@@ -3,7 +3,12 @@
   lib,
   ...
 }: {
-  imports = [./qbitorrent_module.nix ./tdarr.nix ./debrid.nix];
+  imports = [
+    ./qbitorrent_module.nix
+    ./tdarr.nix
+    ./debrid.nix
+    ./dedupe.nix
+  ];
   users.users."qbittorrent" = {
     isSystemUser = true;
     group = "media";
