@@ -1,3 +1,5 @@
+# https://github.com/pceiley/nix-config/blob/3854c687d951ee3fe48be46ff15e8e094dd8e89f/hosts/common/modules/qbittorrent.nix
+
 {
   config,
   lib,
