@@ -24,7 +24,7 @@ this.
 - `global`: Where no-holds-bar configurations are stored.
 - `shared`: Previously like `global` but is now just a place to keep the shared
   home.
-- `specific`: The new `shared`; for specific set ups that reused among one or
+- `specific`: The new `shared`; for specific set ups that are reused among one or
   two machines.
 
 ### Credits
