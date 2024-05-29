@@ -19,6 +19,7 @@
     };
     yazi.url = "github:sxyazi/yazi";
     swwwitch.url = "github:drmkdaddy/swwwitch";
+    ragenix.url = "github:yaxitech/ragenix";
     typed-systems = {
       url = "github:YellowOnion/nix-typed-systems";
       flake = false;
@@ -70,6 +71,7 @@
       ./specific/printing.nix
       ./global/avahi.nix
       nixStuff
+      inputs.ragenix.nixosModules.default
     ];
 
     hostModules = {
@@ -111,6 +113,7 @@
           ++ sharedModules
           ++ [
             (_: {networking.hostName = name;})
+            (_: {environment.systemPackages = [inputs.ragenix.packages.${pkgs.system}.default];})
             h-m.nixosModules.home-manager
             {
               home-manager = {
