@@ -3,6 +3,7 @@
   config,
   ...
 }: {
+  imports = [./container-module.nix];
   age.secrets.nextcloud.file = ../secrets/nextcloud.age;
   networking.nat = {
     enable = true;
@@ -12,14 +13,12 @@
     enableIPv6 = true;
   };
 
+  containers.nextcloud.secrets.nextcloudPassword = {
+    users = ["nextcloud"];
+    path = config.age.secrets.nextcloud.path;
+  };
+
   containers.nextcloud = {
-    bindMounts = {
-      "/etc/secret/" = {
-        hostPath = "${config.age.secrets.nextcloud.path}";
-        isReadOnly = true;
-      };
-      "/var/lib/nextcloud" = {hostPath = "/home/noor/nextcloud";};
-    };
     autoStart = true;
     privateNetwork = true;
     hostAddress = "192.168.100.10";
@@ -51,10 +50,10 @@
           # Nextcloud PostegreSQL database configuration, recommended over using SQLite
           dbtype = "pgsql";
           dbuser = "nextcloud";
-          dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
+          dbhost = "localhost"; # nextcloud will add /.s.PGSQL.5432 by itself
           dbname = "nextcloud";
           dbpassFile = "/var/nextcloud-db-pass";
-          adminpassFile = "/etc/secret/nextcloud.age";
+          adminpassFile = "/run/container-secrets/nextcloudPassword";
 
           adminuser = "drmkdaddy";
         };
@@ -68,7 +67,7 @@
         ensureUsers = [
           {
             name = "nextcloud";
-            ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+            ensureDBOwnership = true;
           }
         ];
       };
@@ -84,6 +83,10 @@
       };
 
       services.resolved.enable = true;
+      services.journald.extraConfig = ''
+        ForwardToConsole=yes
+        MaxLevelConsole=debug
+      '';
     };
   };
 }
