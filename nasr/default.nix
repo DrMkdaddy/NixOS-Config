@@ -6,5 +6,6 @@ _: {
     ./caddy.nix
     ./lodestone.nix
     ./keyboard.nix
+    ./nextcloud.nix
   ];
 }
