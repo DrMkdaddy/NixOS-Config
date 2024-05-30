@@ -1,92 +1,54 @@
 {
-  pkgs,
   config,
+  pkgs,
   ...
 }: {
-  imports = [./container-module.nix];
-  age.secrets.nextcloud.file = ../secrets/nextcloud.age;
-  networking.nat = {
+  environment.systemPackages = [pkgs.nssTools];
+  imports = [
+    "${fetchTarball {
+      url = "https://github.com/onny/nixos-nextcloud-testumgebung/archive/fa6f062830b4bc3cedb9694c1dbf01d5fdf775ac.tar.gz";
+      sha256 = "0gzd0276b8da3ykapgqks2zhsqdv4jjvbv97dsxg0hgrhb74z0fs";
+    }}/nextcloud-extras.nix"
+  ];
+
+  age.secrets.nextcloud = rec {
+    file = ../secrets/nextcloud.age;
+    owner = "nextcloud";
+    group = owner;
+    mode = "400";
+  };
+
+  services.nextcloud = {
     enable = true;
-    internalInterfaces = ["ve-+"];
-    externalInterface = "ens3";
-    # Lazy IPv6 connectivity for the container
-    enableIPv6 = true;
-  };
+    hostName = "nasr.spotted-powan.ts.net";
+    webserver = "caddy";
 
-  containers.nextcloud.secrets.nextcloudPassword = {
-    users = ["nextcloud"];
-    path = config.age.secrets.nextcloud.path;
-  };
+    # Need to manually increment with every major upgrade.
+    package = pkgs.nextcloud28;
 
-  containers.nextcloud = {
-    autoStart = true;
-    privateNetwork = true;
-    hostAddress = "192.168.100.10";
-    localAddress = "192.168.100.11";
-    hostAddress6 = "fc00::1";
-    localAddress6 = "fc00::2";
+    # Let NixOS install and configure the database automatically.
+    database.createLocally = true;
+
+    # Let NixOS install and configure Redis caching automatically.
+    configureRedis = true;
+
+    # Increase the maximum file upload size to avoid problems uploading videos.
+    maxUploadSize = "16G";
+
+    autoUpdateApps.enable = true;
+    extraAppsEnable = true;
+    extraApps = with config.services.nextcloud.package.packages.apps; {
+      # List of apps we want to install and are already packaged in
+      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
+      inherit calendar contacts mail notes onlyoffice tasks;
+    };
+
     config = {
-      config,
-      pkgs,
-      lib,
-      ...
-    }: {
-      services.nextcloud = {
-        enable = true;
-        package = pkgs.nextcloud29;
-        hostName = "nextcloud.godilove.rocks";
-        # Use HTTPS for links
-        https = true;
-
-        # Auto-update Nextcloud Apps
-        autoUpdateApps.enable = true;
-        # Set what time makes sense for you
-        autoUpdateApps.startAt = "05:00:00";
-
-        config = {
-          # Further forces Nextcloud to use HTTPS
-          overwriteProtocol = "https";
-
-          # Nextcloud PostegreSQL database configuration, recommended over using SQLite
-          dbtype = "pgsql";
-          dbuser = "nextcloud";
-          dbhost = "localhost"; # nextcloud will add /.s.PGSQL.5432 by itself
-          dbname = "nextcloud";
-          dbpassFile = "/var/nextcloud-db-pass";
-          adminpassFile = "/run/container-secrets/nextcloudPassword";
-
-          adminuser = "drmkdaddy";
-        };
-      };
-
-      services.postgresql = {
-        enable = true;
-
-        # Ensure the database, user, and permissions always exist
-        ensureDatabases = ["nextcloud"];
-        ensureUsers = [
-          {
-            name = "nextcloud";
-            ensureDBOwnership = true;
-          }
-        ];
-      };
-
-      system.stateVersion = "24.05";
-
-      networking = {
-        firewall = {
-          enable = true;
-          allowedTCPPorts = [80];
-        };
-        useHostResolvConf = lib.mkForce false;
-      };
-
-      services.resolved.enable = true;
-      services.journald.extraConfig = ''
-        ForwardToConsole=yes
-        MaxLevelConsole=debug
-      '';
+      overwriteProtocol = "https";
+      defaultPhoneRegion = "PT";
+      dbtype = "pgsql";
+      adminuser = "admin";
+      adminpassFile = config.age.secrets.nextcloud.path;
     };
   };
 }

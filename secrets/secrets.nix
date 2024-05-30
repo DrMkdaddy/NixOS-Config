@@ -3,5 +3,5 @@ let
   hosts = [nasr];
 in {
   "nextcloud.age".publicKeys = [nasr];
-  "nextcloud_secret.age".publicKeys = [nasr];
+  "postgres_nextcloud.age".publicKeys = [nasr];
 }
