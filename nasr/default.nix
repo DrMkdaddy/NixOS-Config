@@ -5,7 +5,7 @@ _: {
     ./media-stack
     ./lodestone.nix
     ./keyboard.nix
-    ./nextcloud.nix
     ./keys.nix
+    ./seafile.nix
   ];
 }

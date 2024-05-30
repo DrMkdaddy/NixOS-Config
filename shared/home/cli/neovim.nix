@@ -25,17 +25,6 @@
         enable = true;
       };
 
-      notes = {
-        todo-comments.enable = true;
-        obsidian = {
-          enable = true;
-        };
-        orgmode = {
-          enable = true;
-          treesitter.enable = true;
-        };
-      };
-
       binds = {
         cheatsheet.enable = true;
       };
@@ -100,16 +89,6 @@
           enable = true;
           setupOpts.user_default_options = {
             css = true;
-          };
-        };
-        smartcolumn = {
-          enable = true;
-          setupOpts.custom_colorcolumn = {
-            nix = 100;
-            python = 120;
-            lua = 100;
-            elixir = 120;
-            rust = 100;
           };
         };
       };
