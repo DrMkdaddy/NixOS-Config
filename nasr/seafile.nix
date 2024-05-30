@@ -17,7 +17,7 @@
   };
 
   services.nextcloud = {
-    enable = false;
+    enable = true;
     https = true;
     hostName = "nasr.spotted-powan.ts.net";
     webserver = "caddy";
