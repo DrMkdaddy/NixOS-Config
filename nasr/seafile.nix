@@ -13,11 +13,11 @@
     file = ../secrets/nextcloud.age;
     owner = "nextcloud";
     group = owner;
-    mode = "400";
+    mode = "440";
   };
 
   services.nextcloud = {
-    enable = true;
+    enable = false;
     https = true;
     hostName = "nasr.spotted-powan.ts.net";
     webserver = "caddy";
