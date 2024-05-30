@@ -38,7 +38,10 @@
     ssh.startAgent = true;
   };
   services = {
-    tailscale.enable = true;
+    tailscale = {
+      enable = true;
+      permitCertUid = "caddy";
+    };
     libinput.enable = true;
     flatpak.enable = true;
     thermald.enable = true;
