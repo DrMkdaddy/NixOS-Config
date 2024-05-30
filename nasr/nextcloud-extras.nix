@@ -96,6 +96,17 @@ in {
       after = ["nextcloud-setup.service"];
     };
 
+    # Ensure correct permissions for the config directory
+    systemd.services.nextcloud-set-permissions = {
+      enable = true;
+      script = ''
+        chown -R nextcloud:caddy /var/lib/nextcloud/config
+        chmod -R 750 /var/lib/nextcloud/config
+      '';
+      wantedBy = ["multi-user.target"];
+      before = ["nextcloud.service"];
+    };
+
     services.phpfpm.pools.nextcloud.settings = {
       "listen.owner" = webserver.user;
       "listen.group" = webserver.group;
