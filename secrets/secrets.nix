@@ -4,4 +4,5 @@ let
 in {
   "nextcloud.age".publicKeys = [nasr];
   "postgres_nextcloud.age".publicKeys = [nasr];
+  "authentikenv.age".publicKeys = [nasr];
 }

@@ -77,7 +77,7 @@
 
     hostModules = {
       idris = [./idris];
-      nasr = [./nasr];
+      nasr = [./nasr inputs.authentik-nix.nixosModules.default];
     };
     systems = [
       {
