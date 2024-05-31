@@ -24,6 +24,7 @@
       url = "github:YellowOnion/nix-typed-systems";
       flake = false;
     };
+    authentik.url = "github:nix-community/authentik-nix";
   };
 
   nixConfig = {

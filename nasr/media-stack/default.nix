@@ -36,7 +36,7 @@
   ];
 
   networking.firewall.allowedTCPPorts = [5690];
-  virtualisation.oci-containers.backend = "podman";
+  virtualisation.oci-containers.backend = "docker";
   virtualisation.oci-containers.containers."wizarr" = {
     autoStart = true;
     image = "ghcr.io/wizarrrr/wizarr:latest";

@@ -3,6 +3,7 @@
   lib,
   config,
   pkgs,
+  host,
   ...
 }: {
   networking.networkmanager.enable = true;
@@ -58,8 +59,8 @@
   };
   virtualisation.podman = {
     enable = true;
-    dockerSocket.enable = true;
-    dockerCompat = true;
+    dockerSocket.enable = lib.mkIf host == "idris";
+    dockerCompat = lib.mkIf host == "idris";
     defaultNetwork.settings.dns_enabled = true;
   };
   boot.loader = {

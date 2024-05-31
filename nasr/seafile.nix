@@ -1,53 +1,29 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  networking.firewall.allowedTCPPorts = [80 443];
-  environment.systemPackages = [pkgs.nssTools];
-  imports = [
-    ./nextcloud-extras.nix
-  ];
-
-  age.secrets.nextcloud = rec {
-    file = ../secrets/nextcloud.age;
-    owner = "nextcloud";
-    group = owner;
-    mode = "440";
-  };
-
-  services.nextcloud = {
-    enable = true;
-    https = true;
-    hostName = "nasr.spotted-powan.ts.net";
-    webserver = "caddy";
-
-    # Need to manually increment with every major upgrade.
-    package = pkgs.nextcloud29;
-
-    # Let NixOS install and configure the database automatically.
-    database.createLocally = true;
-
-    # Let NixOS install and configure Redis caching automatically.
-    configureRedis = true;
-
-    # Increase the maximum file upload size to avoid problems uploading videos.
-    maxUploadSize = "16G";
-
-    autoUpdateApps.enable = true;
-    extraAppsEnable = true;
-    extraApps = with config.services.nextcloud.package.packages.apps; {
-      # List of apps we want to install and are already packaged in
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-      inherit calendar contacts mail notes onlyoffice tasks;
+# For Linux and without a web server or reverse proxy (like Apache, Nginx, Cloudflare Tunnel and else) already in place:
+# sudo docker run \
+# --init \
+# --sig-proxy=false \
+# --name nextcloud-aio-mastercontainer \
+# --restart always \
+# --publish 80:80 \
+# --publish 8080:8080 \
+# --publish 8443:8443 \
+# --volume nextcloud_aio_mastercontainer:/mnt/docker-aio-config \
+# --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+# nextcloud/all-in-one:latest
+_: {
+  virtualisation.oci-containers.containers.nextcloud-aio-mastercontainer = {
+    autoStart = true;
+    image = "docker.io/nextcloud/all-in-one:latest";
+    ports = ["80:80" "8080:8080" "8443:8443"];
+    volumes = [
+      "nextcloud_aio_mastercontainer:/mnt/docker-aio-config"
+      "/var/run/docker.sock:/var/run/docker.sock:ro"
+    ];
+    environment = {
+      # SKIP_DOMAIN_VALIDATION = "true";
+      APACHE_PORT = "11000";
+      APACHE_IP_BINDING = "0.0.0.0";
     };
-
-    config = {
-      overwriteProtocol = "https";
-      defaultPhoneRegion = "PT";
-      dbtype = "pgsql";
-      adminuser = "admin";
-      adminpassFile = config.age.secrets.nextcloud.path;
-    };
+    extraOptions = ["--sig-proxy=false" "--init"];
   };
 }
