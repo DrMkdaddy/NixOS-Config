@@ -6,6 +6,5 @@ _: {
     ./lodestone.nix
     ./keyboard.nix
     ./keys.nix
-    ./seafile.nix
   ];
 }
