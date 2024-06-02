@@ -4,10 +4,12 @@
     ./configuration.nix
     ./bluetooth.nix
   ];
-  environment.systemPackages = [
-    pkgs.valgrind
-    pkgs.gdb
-    pkgs.swayosd
-    pkgs.jellyfin-media-player
+  environment.systemPackages = with pkgs; [
+    valgrind
+    gdb
+    swayosd
+    jellyfin-media-player
+    qownnotes
+    nextcloud-client
   ];
 }
