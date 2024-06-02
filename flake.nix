@@ -24,7 +24,6 @@
       url = "github:YellowOnion/nix-typed-systems";
       flake = false;
     };
-    authentik.url = "github:nix-community/authentik-nix";
   };
 
   nixConfig = {
@@ -77,7 +76,7 @@
 
     hostModules = {
       idris = [./idris];
-      nasr = [./nasr inputs.authentik-nix.nixosModules.default];
+      nasr = [./nasr];
     };
     systems = [
       {

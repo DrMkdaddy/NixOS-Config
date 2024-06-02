@@ -4,7 +4,8 @@
   ...
 }: let
   dedupe = ''
-    ${lib.getExe pkgs.jdupes} -rLX onlyext:mp4,mkv,avi "/mnt/nuclearmissilesilo/jellyfish/" "/mnt/nuclearmissilesilo/jellyfish/media"
+      # ${lib.getExe pkgs.jdupes} -rLX onlyext:mp4,mkv,avi "/mnt/nuclearmissilesilo/jellyfish/" "/mnt/nuclearmissilesilo/jellyfish/media"
+    echo I<3 cats
   '';
 in {
   systemd = {

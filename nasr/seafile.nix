@@ -23,6 +23,7 @@ _: {
       # SKIP_DOMAIN_VALIDATION = "true";
       APACHE_PORT = "11000";
       APACHE_IP_BINDING = "0.0.0.0";
+      NEXTCLOUD_MOUNT = "/home/noor/docker/nextcloud/";
     };
     extraOptions = ["--sig-proxy=false" "--init"];
   };
