@@ -6,4 +6,5 @@ in {
   "nextcloud.age".publicKeys = [nasr noor];
   "postgres_nextcloud.age".publicKeys = [nasr noor];
   "authentikenv.age".publicKeys = [nasr noor];
+  "aria2c-token.age".publicKeys = [nasr noor];
 }

@@ -5,21 +5,33 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     h-m = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
-    anyrun.url = "github:anyrun-org/anyrun";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
-    xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    neovim-flake.url = "github:notashelf/neovim-flake";
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+    };
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    };
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+    };
+    xdph = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    };
+    neovim-flake = {
+      url = "github:notashelf/neovim-flake";
+    };
     hyprpicker.url = "github:hyprwm/hyprpicker";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
     };
-    yazi.url = "github:sxyazi/yazi";
+    yazi = {
+      url = "github:sxyazi/yazi";
+    };
     swwwitch.url = "github:drmkdaddy/swwwitch";
-    ragenix.url = "github:yaxitech/ragenix";
+    ragenix = {
+      url = "github:yaxitech/ragenix";
+    };
     typed-systems = {
       url = "github:YellowOnion/nix-typed-systems";
       flake = false;
