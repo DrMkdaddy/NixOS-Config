@@ -1,11 +1,11 @@
-_: {
-  virtualisation.oci-containers.containers."real-debrid" = {
+{pkgs, ...}: {
+  virtualisation.oci-containers.containers.realdebridmanager = {
     autoStart = true;
-    image = "docker.io/rogerfar/rdtclient:latest";
-    ports = ["6500:6500"];
+    image = "docker.io/hyperbunny77/realdebridmanager:2022.06.27";
+    ports = "5000:5000";
     volumes = [
-      "/mnt/nuclearmissilesilo/jellyfish/debrid:/data/downloads"
-      "/home/noor/debrid:/data/db"
+      "/mnt/nuclearmissilesilo/jellyfish/media:/watch"
+      "config_debrid:/config"
     ];
   };
 }
