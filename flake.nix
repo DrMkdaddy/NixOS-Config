@@ -36,6 +36,12 @@
       url = "github:YellowOnion/nix-typed-systems";
       flake = false;
     };
+    pterodactyl = {
+      url = "github:pterodactyl/panel";
+    };
+    nixified-ai = {
+      url = "github:nixified-ai/flake
+    };
   };
 
   nixConfig = {

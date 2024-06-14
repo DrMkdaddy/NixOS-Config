@@ -33,6 +33,7 @@
     jellyfin-media-player
     jdupes
     ncdu
+    rclone
   ];
 
   networking.firewall.allowedTCPPorts = [5690];
