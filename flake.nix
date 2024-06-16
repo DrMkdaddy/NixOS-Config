@@ -40,7 +40,7 @@
       url = "github:pterodactyl/panel";
     };
     nixified-ai = {
-      url = "github:nixified-ai/flake
+      url = "github:nixified-ai/flake";
     };
   };
 
@@ -51,6 +51,7 @@
       "https://anyrun.cachix.org"
       "https://nix-community.cachix.org"
       "https://yazi.cachix.org"
+      "https://ai.cachix.org"
     ];
     extra-trusted-public-keys = [
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -58,6 +59,7 @@
       "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
+      "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
     ];
   };
 

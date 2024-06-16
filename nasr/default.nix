@@ -6,5 +6,6 @@ _: {
     ./lodestone.nix
     ./keyboard.nix
     ./keys.nix
+    ./ai-gen.nix
   ];
 }
