@@ -18,7 +18,7 @@
     open = false;
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   boot.initrd.kernelModules = ["nvidia"];
   environment = {
@@ -28,6 +28,10 @@
       docker-compose
       #podman-compose
       vesktop
+      inkscape
+      krita
+      gimp
+      steam-tui
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
